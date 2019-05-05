@@ -1,0 +1,14 @@
+$header-text-color: #7C777D;
+$link-text-color: #C8C7C7;
+$description-text-color: #A29B91;
+
+
+@import '_header';
+
+body {
+  margin: 0px;
+  padding-top: 5%;
+  padding-left: 15%;
+  padding-right: 15%;
+  font-family: Arial, Helvetica, sans-serif;
+}
