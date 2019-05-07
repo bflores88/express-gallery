@@ -9,6 +9,8 @@ const fs = require('fs')
 const methodOverride = require('method-override');
 const guard = require('./middleware/guard');
 
+const register = require('./routes/register.js');
+const login = require('./routes/login.js');
 const gallery = require('./routes/gallery.js');
 
 const app = express();
@@ -28,7 +30,9 @@ app.set('view engine', '.hbs');
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
 
-app.use('/gallery', gallery)
+app.use('/register', register);
+app.use('/login', login);
+app.use('/gallery', gallery);
 
 app.get('/', (req, res) => {
   res.render('layouts/home');
