@@ -39,7 +39,6 @@ app.engine(
 app.set('view engine', '.hbs');
 
 app.use(methodOverride('_method'));
-app.use(express.static('public'));
 
 app.use('/gallery', gallery);
 app.use('/register', register);

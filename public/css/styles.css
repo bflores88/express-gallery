@@ -86,6 +86,11 @@
   .edit-delete .edit-delete-button:last-child {
     margin-left: 10px; }
 
+.input-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
 body {
   margin: 0px;
   padding-top: 5%;

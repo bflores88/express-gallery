@@ -30,9 +30,9 @@ router.route('/')
 
 router.route('/new')
   .get((req, res) => {
-    res.send('smoke test 4 /new')
+    res.render('layouts/all_users/new')
     //form to POST new gallery photo
-    //form fields consume author, link, description
+    //form fields consume title, link, description
   })
 
 router.route('/:id')
