@@ -3,14 +3,22 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-top: 1px dotted lightgrey;
   padding-top: 10px; }
+  @media screen and (min-width: 480px) {
+    .header-div {
+      border-top: 1px dotted lightgrey; } }
   .header-div .banner {
-    width: 60%;
+    width: 100%;
+    font-size: 10vw;
     padding-top: 5px;
-    font-size: 4.5vw;
     font-weight: 900;
-    color: #7C777D; }
+    color: #7C777D;
+    text-align: center; }
+    @media screen and (min-width: 480px) {
+      .header-div .banner {
+        width: 60%;
+        font-size: 4.5vw;
+        text-align: initial; } }
 
 .banner-info {
   display: none; }
@@ -24,6 +32,59 @@
       color: #C8C7C7;
       border-left: 1px solid lightgrey;
       font-size: 16px; } }
+
+.gallery-main {
+  width: 100%;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 30px; }
+
+.gallery-head-div {
+  width: 100%;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px dotted lightgrey; }
+  .gallery-head-div .gallery-head-img {
+    width: 100%;
+    height: auto; }
+
+.gallery-minis {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px dotted lightgrey; }
+  .gallery-minis .photo-div {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px; }
+    .gallery-minis .photo-div .photo-text {
+      width: 100%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap; }
+    .gallery-minis .photo-div .gallery-mini-img {
+      width: 100%;
+      height: 200px; }
+  @media screen and (min-width: 480px) {
+    .gallery-minis .photo-div {
+      width: 33.3%;
+      height: 175px; }
+      .gallery-minis .photo-div .gallery-mini-img {
+        width: 100%;
+        height: 150px; } }
+
+.edit-delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px; }
+  .edit-delete .edit-delete-button:last-child {
+    margin-left: 10px; }
 
 body {
   margin: 0px;

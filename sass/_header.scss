@@ -3,15 +3,26 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-top: 1px dotted lightgrey;
   padding-top: 10px;
 
+  @media screen and (min-width: 480px){
+    border-top: 1px dotted lightgrey;
+  }
+
   .banner {
-    width: 60%;
+    width: 100%;
+    font-size: 10vw;
     padding-top: 5px;
-    font-size: 4.5vw;
     font-weight: 900;
     color: $header-text-color;
+    text-align: center;
+
+    @media screen and (min-width: 480px){
+      width: 60%;
+      font-size: 4.5vw;
+      text-align: initial;
+
+    }
 
     
 
