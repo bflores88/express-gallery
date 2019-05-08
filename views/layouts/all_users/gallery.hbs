@@ -34,7 +34,8 @@
       <div class="photo-text">
         {{title}}
       </div>
-      <div class="edit-delete" style='display:{{display}}'>
+      {{#if thisUser}}
+      <div class="edit-delete">
         <div class="edit-delete-button">
           <a href="/gallery/{{id}}/edit">
             <button type="button" class="btn-edit" value="ok">Edit</button>
@@ -47,6 +48,7 @@
           </form>
         </div>
       </div>
+      {{/if}}
     </div>
     {{/each}}
 

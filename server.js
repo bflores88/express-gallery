@@ -9,13 +9,15 @@ const fs = require('fs')
 const methodOverride = require('method-override');
 const guard = require('./middleware/guard');
 const bcrypt = require('bcryptjs');
+const flash = require('connect-flash');
 
 const User = require('./database/models/User');
-const Photo = require('./database/models/Photo');
+const Gallery = require('./database/models/Gallery');
 
 const gallery = require('./routes/gallery.js');
 const register = require('./routes/register.js');
 const login = require('./routes/login.js');
+
 
 const app = express();
 const PORT = 3000;
@@ -62,7 +64,6 @@ passport.use(
     return new User({ username: username })
       .fetch()
       .then((user) => {
-        console.log(user);
 
         if (user === null) {
           return done(null, false, { message: 'bad username or password' });
@@ -94,7 +95,6 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(user, done) {
   console.log('deserializing');
-  console.log(user);
 
   return new User({id: user.id})
   .fetch()

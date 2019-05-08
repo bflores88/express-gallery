@@ -8,6 +8,10 @@
         <img src="{{link}}" alt="succulent">
       </div>
 
+      <div class="author-detail">
+        Photo author&nbsp;{{author}}&nbsp;submitted by&nbsp;{{username}}
+      </div>
+
       <div class="description-detail">
         {{description}}
       </div>
@@ -39,7 +43,8 @@
 
       <div class="mini-title">{{title}}</div>
 
-      <div class="edit-delete" style='display:{{display}}'>
+      {{#if thisUser}}
+      <div class="edit-delete">
         <div class="edit-delete-button">
           <a href="/gallery/{{id}}/edit">
             <button type="button" class="btn-edit" value="ok">Edit</button>
@@ -52,6 +57,7 @@
           </form>
         </div>
       </div>
+      {{/if}}
       
     </div>
 

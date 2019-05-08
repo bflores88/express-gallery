@@ -1,8 +1,9 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('photos', (table) => {
+  return knex.schema.createTable('galleries', (table) => {
     table.increments();
-    table.integer('author_id').references('id').inTable('users').notNullable();
+    table.integer('user_id').references('id').inTable('users').notNullable();
+    table.text('author').notNullable();
     table.text('link').notNullable();
     table.text('title').notNullable();
     table.text('description').notNullable();
@@ -11,5 +12,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('photos');
+  return knex.schema.dropTable('galleries');
 };

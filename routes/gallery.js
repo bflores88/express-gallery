@@ -1,100 +1,129 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../database/models/User');
-const Photo = require('../database/models/Photo');
+const Gallery = require('../database/models/Gallery');
 
-router.route('/')
+router
+  .route('/')
   .get((req, res) => {
     let currentUser = req.user.id;
-    //view list of gallery photos
-    return new Photo()
-    // .where('author_id', req.user.id)
-    .orderBy('created_at', 'DESC')
-    .fetchAll()
-    .then((result) => {
-      let allPlants = result.models;
-      let context = fillGallery(currentUser, allPlants);
-      res.render('layouts/all_users/gallery', context);
-    })
-    .catch((err) => {
-      res.send('{ message: Database Error');
-    })
 
-
+    return new Gallery()
+      .orderBy('created_at', 'DESC')
+      .fetchAll()
+      .then((result) => {
+        let allPlants = result.models;
+        let context = fillGallery(currentUser, allPlants);
+        res.render('layouts/all_users/gallery', context);
+      })
+      .catch((err) => {
+        res.send('{ message: Database Error');
+      });
   })
   .post((req, res) => {
-    res.send('smoke test 4 POST /')
-    //create a new gallery photo
-  })
+    let user_id = req.user.id;
+    let author = req.body.author;
+    let title = req.body.title;
+    let link = req.body.link;
+    let description = req.body.description;
 
-router.route('/new')
-  .get((req, res) => {
-    res.render('layouts/all_users/new')
-    //form to POST new gallery photo
-    //form fields consume title, link, description
-  })
-
-router.route('/:id')
-  .get((req, res) => {
-    res.send('smoke test 3 GET /:id')
-    new Photo()
-    .where('id', req.params.id)
-    .fetch()
+    new Gallery({user_id: user_id, author: author, title: title, link: link, description: description})
+    .save()
     .then((result) => {
-      console.log(result);
+      return res.redirect(302, '/gallery')
     })
-    //see a single gallery photo
-    //include a link to delete this gallery photo
-    //include a link to edit this gallery photo
+    .catch((err) => {
+      console.log('error', err)
+      return res.status(500).send('{ message: error }')
+    })
+  });
+
+router.route('/new').get((req, res) => {
+  res.render('layouts/all_users/new');
+});
+
+router
+  .route('/:id')
+  .get((req, res) => {
+    new Gallery()
+      .where({ id: req.params.id })
+      .fetch({ withRelated: ['users'] })
+      .then((result) => {
+        let resultObject = result.toJSON();
+        let userObject = resultObject.users;
+        let displayStyle = 'none';
+
+        if (result.get('user_id') === req.user.id) {
+          displayStyle = 'flex';
+        }
+
+        const context = {
+          title: resultObject.title,
+          author: resultObject.author,
+          username: userObject.username,
+          link: resultObject.link,
+          description: resultObject.description,
+          display: displayStyle,
+        };
+
+        return context;
+      })
+      .then((context) => {
+        new Gallery()
+          .query((qb) => {
+            qb.orderByRaw('RANDOM()');
+          })
+          .fetchAll()
+          .then((result) => {
+            let galleryObject = result.toJSON();
+            context.photo = fillSideGallery(galleryObject, req.user.id);
+
+            return res.status(200).render('layouts/all_users/single', context);
+          });
+      });
   })
   .put((req, res) => {
-    console.log(req.params.id);
-    console.log(req.body);
-
-    new Photo()
-    .where('id', req.params.id)
-    .save({
-      author_id: req.user.id,
-      title: req.body.title,
-      link: req.body.link,
-      description: req.body.description
-    })
-    .then((result) => {
-      console.log(result);
-      res.send('smoke test 5 PUT /:id')
-
-    })
-    
+    new Gallery()
+      .where('id', req.params.id)
+      .save({
+        user_id: req.user.id,
+        author: req.body.author,
+        title: req.body.title,
+        link: req.body.link,
+        description: req.body.description,
+      })
+      .then((result) => {
+        res.send('smoke test 5 PUT /:id');
+      });
 
     //update gallery photo by :id param
   })
   .delete((req, res) => {
-    res.send('smoke test 6 DELETE /:id')
+    res.send('smoke test 6 DELETE /:id');
     //delete gallery photo by :id param
-  })
+  });
 
-router.route('/:id/edit')
-  .get((req, res) => {
-
-    new Photo()
+router.route('/:id/edit').get((req, res) => {
+  new Gallery()
     .where('id', req.params.id)
     .fetch()
     .then((result) => {
-      let context = {};
+      let context = {
+        title: result.get('title'),
+        author: result.get('author'),
+        link: result.get('link'),
+        description: result.get('description'),
+        id: result.get('id'),
+      };
 
-      context.title = result.get('title');
-      context.link = result.get('link');
-      context.description = result.get('description');
-      context.id = result.get('id');
+      res.render('layouts/all_users/edit', context);
+    });
 
-      res.render('layouts/all_users/edit', context)
-    })
-    
-    //see a form to edit a gallery phot
-    //show form fields author, link, description
-  })
+  //see a form to edit a gallery phot
+  //show form fields author, link, description
+});
 
-function fillGallery(userID, photoArray){
+function fillGallery(userID, photoArray) {
   let subPhotos = [];
 
   photoArray.forEach((photoObject) => {
@@ -102,16 +131,16 @@ function fillGallery(userID, photoArray){
     subPhotoObject.id = photoObject.get('id');
     subPhotoObject.url = photoObject.get('link');
     subPhotoObject.title = photoObject.get('title');
-    subPhotoObject.author_id = photoObject.get('author_id');
+    subPhotoObject.user_id = photoObject.get('user_id');
 
-    if(photoObject.get('author_id') === userID){
-      subPhotoObject.display = 'flex';
+    if (photoObject.get('user_id') === userID) {
+      subPhotoObject.thisUser = true;
     } else {
-      subPhotoObject.display = 'none';
+      subPhotoObject.thisUser = false;
     }
 
     subPhotos.push(subPhotoObject);
-  })
+  });
 
   let first = subPhotos.splice(0, 1);
   let context = first[0];
@@ -120,5 +149,16 @@ function fillGallery(userID, photoArray){
   return context;
 }
 
+function fillSideGallery(galleryArray, userID) {
+  galleryArray.map((photoObject) => {
+    if (photoObject.user_id === userID) {
+      photoObject.thisUser = true;
+    } else {
+      photoObject.thisUser = false;
+    }
+  });
+
+  return galleryArray;
+}
 
 module.exports = router;
