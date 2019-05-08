@@ -95,9 +95,19 @@
   .input-form .form-group {
     margin-bottom: 20px; }
   .input-form .form-control {
-    width: 100%; }
+    width: 100%;
+    font-size: 18px; }
+  .input-form #body-input {
+    height: 200px; }
   .input-form .button-div, .input-form .btn-submit {
     text-align: center; }
+
+.edit-image-div {
+  width: 100%; }
+  .edit-image-div .edit-current-image {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto; }
 
 body {
   margin: 0px;

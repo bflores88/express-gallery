@@ -11,9 +11,24 @@
 
   .form-control {
     width: 100%;
+    font-size: 18px;
+  }
+
+  #body-input {
+    height: 200px;
   }
 
   .button-div, .btn-submit {
     text-align: center;
+  }
+}
+
+.edit-image-div {
+  width: 100%;
+
+  .edit-current-image {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto
   }
 }

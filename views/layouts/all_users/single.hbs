@@ -1,0 +1,62 @@
+<main class="detail">
+
+  <section class="single-photo">
+    <div class="single-photo-div">
+      <div class="title-detail">{{title}}</div>
+
+      <div class="photo-detail">
+        <img src="{{link}}" alt="succulent">
+      </div>
+
+      <div class="description-detail">
+        {{description}}
+      </div>
+    </div>
+
+    <div class="edit-delete" style='display:{{display}}'>
+    <div class="edit-delete-button">
+      <a href="/gallery/{{id}}/edit">
+        <button type="button" class="btn-edit" value="ok">Edit</button>
+      </a>
+    </div>
+    <div class="edit-delete-button">
+      <form action="/gallery/{{id}}?_method=DELETE" method="post" role="form" enctype="application/x-www-form-urlencoded">
+        <button type="button" class="btn-edit" value="ok">Delete</button>
+      </form>
+    </div>
+    
+  </div>
+  </section>
+
+  <section class="mini-details">
+
+    {{#each photo}}
+    <div class="mini-detail-div">
+
+      <div class="mini-photo-detail">
+        <a href="/gallery/{{id}}"><img src="{{link}}" alt="succulent"></a>
+      </div>
+
+      <div class="mini-title">{{title}}</div>
+
+      <div class="edit-delete" style='display:{{display}}'>
+        <div class="edit-delete-button">
+          <a href="/gallery/{{id}}/edit">
+            <button type="button" class="btn-edit" value="ok">Edit</button>
+          </a>
+        </div>
+        <div class="edit-delete-button">
+          <form action="/gallery/{{id}}?_method=DELETE" method="post" role="form"
+            enctype="application/x-www-form-urlencoded">
+            <button type="button" class="btn-edit" value="ok">Delete</button>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+
+    {{/each}}
+
+  </section>
+
+</main>

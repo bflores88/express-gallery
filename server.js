@@ -8,6 +8,7 @@ const LocalStrategy = require('passport-local');
 const fs = require('fs')
 const methodOverride = require('method-override');
 const guard = require('./middleware/guard');
+const bcrypt = require('bcryptjs');
 
 const User = require('./database/models/User');
 const Photo = require('./database/models/Photo');
@@ -18,6 +19,7 @@ const login = require('./routes/login.js');
 
 const app = express();
 const PORT = 3000;
+const saltRounds = 12;
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -40,13 +42,19 @@ app.set('view engine', '.hbs');
 
 app.use(methodOverride('_method'));
 
-app.use('/gallery', gallery);
 app.use('/register', register);
 app.use('/login', login);
 
 app.get('/', (req, res) => {
   res.render('layouts/home');
 });
+
+app.use(guard, (req, res, next) => {
+  next();
+})
+
+app.use('/gallery', gallery);
+
 
 
 passport.use(

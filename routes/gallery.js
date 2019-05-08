@@ -3,7 +3,6 @@ const router = express.Router();
 const User = require('../database/models/User');
 const Photo = require('../database/models/Photo');
 
-
 router.route('/')
   .get((req, res) => {
     let currentUser = req.user.id;
@@ -38,12 +37,35 @@ router.route('/new')
 router.route('/:id')
   .get((req, res) => {
     res.send('smoke test 3 GET /:id')
+    new Photo()
+    .where('id', req.params.id)
+    .fetch()
+    .then((result) => {
+      console.log(result);
+    })
     //see a single gallery photo
     //include a link to delete this gallery photo
     //include a link to edit this gallery photo
   })
   .put((req, res) => {
-    res.send('smoke test 5 PUT /:id')
+    console.log(req.params.id);
+    console.log(req.body);
+
+    new Photo()
+    .where('id', req.params.id)
+    .save({
+      author_id: req.user.id,
+      title: req.body.title,
+      link: req.body.link,
+      description: req.body.description
+    })
+    .then((result) => {
+      console.log(result);
+      res.send('smoke test 5 PUT /:id')
+
+    })
+    
+
     //update gallery photo by :id param
   })
   .delete((req, res) => {
@@ -53,7 +75,21 @@ router.route('/:id')
 
 router.route('/:id/edit')
   .get((req, res) => {
-    res.send('smoke test 4 GET /:id/get')
+
+    new Photo()
+    .where('id', req.params.id)
+    .fetch()
+    .then((result) => {
+      let context = {};
+
+      context.title = result.get('title');
+      context.link = result.get('link');
+      context.description = result.get('description');
+      context.id = result.get('id');
+
+      res.render('layouts/all_users/edit', context)
+    })
+    
     //see a form to edit a gallery phot
     //show form fields author, link, description
   })
