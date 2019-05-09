@@ -64,6 +64,7 @@ router
           link: resultObject.link,
           description: resultObject.description,
           display: displayStyle,
+          id: resultObject.id
         };
 
         return context;
@@ -83,8 +84,7 @@ router
       });
   })
   .put((req, res) => {
-    new Gallery()
-      .where('id', req.params.id)
+    new Gallery('id', req.params.id)
       .save({
         user_id: req.user.id,
         author: req.body.author,
@@ -93,7 +93,8 @@ router
         description: req.body.description,
       })
       .then((result) => {
-        res.send('smoke test 5 PUT /:id');
+        console.log(req.params.id);
+        return res.redirect(302, `/gallery/${Number(req.params.id)}`)
       });
 
     //update gallery photo by :id param
