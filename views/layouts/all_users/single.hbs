@@ -5,16 +5,18 @@
       <div class="title-detail">{{title}}</div>
 
       <div class="photo-detail">
-        <img src="{{link}}" alt="succulent">
-      </div>
-
-      <div class="author-detail">
-        Photo author&nbsp;{{author}}&nbsp;submitted by&nbsp;{{username}}
+        <img src="{{link}}" class="this-photo" alt="succulent">
       </div>
 
       <div class="description-detail">
         {{description}}
       </div>
+
+      <div class="author-detail">
+        <span class="photo-author">Photo by:&nbsp;{{author}}</span><br>
+        <span class="photo-submitted">Submitted by:&nbsp;{{username}}</span>
+      </div>
+
     </div>
 
     <div class="edit-delete" style='display:{{display}}'>
@@ -23,11 +25,6 @@
         <button type="button" class="btn-edit" value="ok">Edit</button>
       </a>
     </div>
-    <div class="edit-delete-button">
-      <form action="/gallery/{{id}}?_method=DELETE" method="post" role="form" enctype="application/x-www-form-urlencoded">
-        <button type="button" class="btn-edit" value="ok">Delete</button>
-      </form>
-    </div>
     
   </div>
   </section>
@@ -35,10 +32,10 @@
   <section class="mini-details">
 
     {{#each photo}}
-    <div class="mini-detail-div">
+    <div class="single-mini">
 
-      <div class="mini-photo-detail">
-        <a href="/gallery/{{id}}"><img src="{{link}}" alt="succulent"></a>
+      <div class="single-mini-div">
+        <a href="/gallery/{{id}}"><img src="{{link}}" class="this-mini-photo" alt="succulent"></a>
       </div>
 
       <div class="mini-title">{{title}}</div>
@@ -49,12 +46,6 @@
           <a href="/gallery/{{id}}/edit">
             <button type="button" class="btn-edit" value="ok">Edit</button>
           </a>
-        </div>
-        <div class="edit-delete-button">
-          <form action="/gallery/{{id}}?_method=DELETE" method="post" role="form"
-            enctype="application/x-www-form-urlencoded">
-            <button type="button" class="btn-edit" value="ok">Delete</button>
-          </form>
         </div>
       </div>
       {{/if}}

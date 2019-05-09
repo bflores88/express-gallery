@@ -12,12 +12,6 @@
           <button type="button" class="btn-edit" value="ok">Edit</button>
         </a>
       </div>
-      <div class="edit-delete-button">
-        <form action="/gallery/{{id}}?_method=DELETE" method="post" role="form"
-          enctype="application/x-www-form-urlencoded">
-          <button type="button" class="btn-edit" value="ok">Delete</button>
-        </form>
-      </div>
     </div>
   </section>
 
@@ -40,12 +34,6 @@
           <a href="/gallery/{{id}}/edit">
             <button type="button" class="btn-edit" value="ok">Edit</button>
           </a>
-        </div>
-        <div class="edit-delete-button">
-          <form action="/gallery/{{id}}?_method=DELETE" method="post" role="form"
-            enctype="application/x-www-form-urlencoded">
-            <button type="button" class="btn-edit" value="ok">Delete</button>
-          </form>
         </div>
       </div>
       {{/if}}

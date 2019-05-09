@@ -34,7 +34,7 @@
 
       <div class="form-group">
         <label for="description">Photo Description</label>
-        <textarea type="text" class="form-control" id="body-input" name="description" value="{{description}}">{{description}}</textarea>
+        <textarea type="text" class="form-control" id="body-input" name="description">{{description}}</textarea>
       </div>
 
       <div class="buttonDiv">
@@ -43,6 +43,18 @@
 
     </form>
 
+  </section>
+
+  <section class="delete-option">
+    <div class="delete-div">
+      <h2>Delete Gallery Photo</h2>
+    </div>
+    <div class="edit-delete-button">
+          <form action="/gallery/{{id}}?_method=DELETE" method="post" role="form"
+            enctype="application/x-www-form-urlencoded">
+            <button type="button" class="btn-edit" value="ok">Delete</button>
+          </form>
+        </div>
   </section>
 
 </div>

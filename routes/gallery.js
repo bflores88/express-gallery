@@ -100,6 +100,7 @@ router
     //update gallery photo by :id param
   })
   .delete((req, res) => {
+    new Gallery({id: req.params.id})
     res.send('smoke test 6 DELETE /:id');
     //delete gallery photo by :id param
   });

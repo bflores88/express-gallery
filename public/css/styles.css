@@ -86,6 +86,53 @@
   .edit-delete .edit-delete-button:last-child {
     margin-left: 10px; }
 
+.detail {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  @media screen and (min-width: 480px) {
+    .detail {
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-top: 100px; } }
+  .detail .single-photo {
+    width: 100%;
+    padding: 50px 0px 20px 0px; }
+    @media screen and (min-width: 480px) {
+      .detail .single-photo {
+        width: 55%;
+        padding-top: 0px;
+        padding-right: 3.5%; } }
+    .detail .single-photo .title-detail {
+      color: #C8C7C7; }
+    .detail .single-photo .photo-detail {
+      margin: 20px 0px 20px 0px; }
+      .detail .single-photo .photo-detail .this-photo {
+        width: 100%; }
+    .detail .single-photo .author-detail {
+      margin-top: 30px;
+      color: #C8C7C7; }
+    .detail .single-photo .description-detail {
+      color: #A29B91; }
+
+.mini-details {
+  display: none; }
+  @media screen and (min-width: 480px) {
+    .mini-details {
+      display: block;
+      width: 40%;
+      margin: 0px 5px 0px 0px;
+      text-align: initial;
+      color: #C8C7C7;
+      font-size: 16px; }
+      .mini-details .single-mini {
+        width: 100%; }
+        .mini-details .single-mini .single-mini-div {
+          margin-bottom: 10px; }
+          .mini-details .single-mini .single-mini-div .this-mini-photo {
+            width: 100%; } }
+
 .input-form {
   width: 100%;
   display: flex;
