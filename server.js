@@ -9,6 +9,7 @@ const fs = require('fs')
 const methodOverride = require('method-override');
 const guard = require('./middleware/guard');
 const bcrypt = require('bcryptjs');
+const redis = require('connect-redis')(session);
 const flash = require('connect-flash');
 
 const User = require('./database/models/User');
@@ -19,15 +20,22 @@ const register = require('./routes/register.js');
 const login = require('./routes/login.js');
 
 
-const app = express();
 const PORT = 3000;
 const saltRounds = 12;
 
+require('dotenv').config();
+
+const app = express();
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(session({ secret: 'keyboard cat' }));
+app.use(session({ 
+  store: new redis({url: process.env.REDIS_URL}),
+  secret: process.env.REDIS_SECRET,
+  resave: false,
+  saveUninitialized: false
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -109,7 +117,10 @@ passport.deserializeUser(function(user, done) {
   })
 });
 
-
+app.get('/logout', (req, res) => {
+  req.logout();
+  res.send('logged out');
+})
 
 
 
