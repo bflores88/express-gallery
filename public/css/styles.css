@@ -90,7 +90,8 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center; }
+  justify-content: center;
+  margin-bottom: 50px; }
   @media screen and (min-width: 480px) {
     .detail {
       flex-direction: row;
@@ -105,7 +106,8 @@
         padding-top: 0px;
         padding-right: 3.5%; } }
     .detail .single-photo .title-detail {
-      color: #C8C7C7; }
+      color: #C8C7C7;
+      font-weight: 900; }
     .detail .single-photo .photo-detail {
       margin: 20px 0px 20px 0px; }
       .detail .single-photo .photo-detail .this-photo {
@@ -125,13 +127,17 @@
       margin: 0px 5px 0px 0px;
       text-align: initial;
       color: #C8C7C7;
-      font-size: 16px; }
+      font-size: 16px;
+      font-weight: 900; }
       .mini-details .single-mini {
-        width: 100%; }
-        .mini-details .single-mini .single-mini-div {
-          margin-bottom: 10px; }
-          .mini-details .single-mini .single-mini-div .this-mini-photo {
-            width: 100%; } }
+        width: 100%;
+        margin-bottom: 10px; }
+        .mini-details .single-mini .mini-title {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap; }
+        .mini-details .single-mini .single-mini-div .this-mini-photo {
+          width: 100%; } }
 
 .input-form {
   width: 100%;

@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 50px;
 
   @media screen and (min-width: 480px){
     flex-direction: row;
@@ -22,6 +23,7 @@
 
     .title-detail {
       color: $link-text-color;
+      font-weight: 900;
     }
 
     .photo-detail {
@@ -55,13 +57,21 @@
     text-align: initial;
     color: $link-text-color;
     font-size: 16px;
+    font-weight: 900;
+
 
     .single-mini {
       width: 100%;
+      margin-bottom: 10px;
+
+      .mini-title {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
 
       .single-mini-div {
-        margin-bottom: 10px;
-        
+
         .this-mini-photo {
           width: 100%;
         }

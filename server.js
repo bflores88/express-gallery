@@ -52,20 +52,6 @@ app.set('view engine', '.hbs');
 
 app.use(methodOverride('_method'));
 
-app.use('/register', register);
-app.use('/login', login);
-
-app.get('/', (req, res) => {
-  res.render('layouts/home');
-});
-
-app.use(guard, (req, res, next) => {
-  next();
-})
-
-app.use('/gallery', gallery);
-
-
 
 passport.use(
   new LocalStrategy(function(username, password, done) {
@@ -116,6 +102,19 @@ passport.deserializeUser(function(user, done) {
     })
   })
 });
+
+app.get('/', (req, res) => {
+  res.render('layouts/home');
+});
+
+app.use('/register', register);
+app.use('/login', login);
+
+app.use(guard, (req, res, next) => {
+  next();
+})
+
+app.use('/gallery', gallery);
 
 app.get('/logout', (req, res) => {
   req.logout();

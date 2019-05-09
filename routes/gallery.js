@@ -27,15 +27,15 @@ router
     let link = req.body.link;
     let description = req.body.description;
 
-    new Gallery({user_id: user_id, author: author, title: title, link: link, description: description})
-    .save()
-    .then((result) => {
-      return res.redirect(302, '/gallery')
-    })
-    .catch((err) => {
-      console.log('error', err)
-      return res.status(500).send('{ message: error }')
-    })
+    new Gallery({ user_id: user_id, author: author, title: title, link: link, description: description })
+      .save()
+      .then((result) => {
+        return res.redirect(302, '/gallery');
+      })
+      .catch((err) => {
+        console.log('error', err);
+        return res.status(500).send('{ message: error }');
+      });
   });
 
 router.route('/new').get((req, res) => {
@@ -64,7 +64,7 @@ router
           link: resultObject.link,
           description: resultObject.description,
           display: displayStyle,
-          id: resultObject.id
+          id: resultObject.id,
         };
 
         return context;
@@ -83,6 +83,11 @@ router
           });
       });
   })
+  .delete((req, res) => {
+    new Gallery({ id: req.params.id }).destroy().then((result) => {
+      return res.redirect(302, '/gallery');
+    });
+  })
   .put((req, res) => {
     new Gallery('id', req.params.id)
       .save({
@@ -94,16 +99,10 @@ router
       })
       .then((result) => {
         console.log(req.params.id);
-        return res.redirect(302, `/gallery/${Number(req.params.id)}`)
+        return res.redirect(302, `/gallery/${Number(req.params.id)}`);
       });
-
-    //update gallery photo by :id param
   })
-  .delete((req, res) => {
-    new Gallery({id: req.params.id})
-    res.send('smoke test 6 DELETE /:id');
-    //delete gallery photo by :id param
-  });
+  
 
 router.route('/:id/edit').get((req, res) => {
   new Gallery()
