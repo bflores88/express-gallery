@@ -64,15 +64,23 @@ passport.use(
         } else {
           user = user.toJSON();
 
-          //Happy route: username exists, password matches
-          if (user.password === password) {
-            return done(null, user);
-          }
+          bcrypt.compare(password, user.password)
+          .then((res) => {
+              //Happy route: username exists, password matches
+            if (res) {
+              return done(null, user);
+            }
 
-          //Error route: Username exists, password does not match
-          else {
-            return done(null, false, { message: 'bad username or password' });
-          }
+            //Error route: Username exists, password does not match
+            else {
+              return done(null, false, { message: 'bad username or password' });
+            }
+
+          })
+          .catch((err) => {
+            console.log('err', err);
+            return done(err);
+          })
         }
       })
       .catch((err) => {
@@ -84,7 +92,7 @@ passport.use(
 
 passport.serializeUser(function(user, done) {
   console.log('serializing');
-  return done(null, { id: user.id, username: user.username });
+  return done(null, { id: user.id, username: user.username, role: user.role_id });
 });
 
 passport.deserializeUser(function(user, done) {
@@ -98,7 +106,8 @@ passport.deserializeUser(function(user, done) {
     done(null, {
       id: user.id,
       username: user.username,
-      email: user.email
+      email: user.email,
+      role: user.role_id
     })
   })
 });

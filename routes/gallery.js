@@ -53,7 +53,7 @@ router
         let userObject = resultObject.users;
         let displayStyle = 'none';
 
-        if (result.get('user_id') === req.user.id) {
+        if (resultObject.user_id === req.user.id || req.user.role === 1) {
           displayStyle = 'flex';
         }
 
@@ -77,7 +77,7 @@ router
           .fetchAll()
           .then((result) => {
             let galleryObject = result.toJSON();
-            context.photo = fillSideGallery(galleryObject, req.user.id);
+            context.photo = fillSideGallery(galleryObject, req.user.id, req.user.role);
 
             return res.status(200).render('layouts/all_users/single', context);
           });
@@ -154,9 +154,9 @@ function fillGallery(userID, photoArray) {
   return context;
 }
 
-function fillSideGallery(galleryArray, userID) {
+function fillSideGallery(galleryArray, userID, roleID) {
   galleryArray.map((photoObject) => {
-    if (photoObject.user_id === userID) {
+    if (photoObject.user_id === userID || roleID === 1) {
       photoObject.thisUser = true;
     } else {
       photoObject.thisUser = false;
