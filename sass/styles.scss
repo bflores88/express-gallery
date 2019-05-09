@@ -1,9 +1,12 @@
 $header-text-color: #7C777D;
 $link-text-color: #C8C7C7;
 $description-text-color: #A29B91;
+$dotted-border-color: lightgrey;
+$home-bg-color: whitesmoke;
 
 
 @import '_header';
+@import '_home';
 @import '_gallery-all';
 @import '_gallery-single';
 @import '_forms';
@@ -13,5 +16,7 @@ body {
   padding-top: 5%;
   padding-left: 15%;
   padding-right: 15%;
+  background-image: url("../../assets/swirl.png");
+  background-repeat: repeat;
   font-family: Arial, Helvetica, sans-serif;
 }

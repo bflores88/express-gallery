@@ -1,0 +1,29 @@
+.main-home {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+
+  .home-wrapper {
+    width: 60%;
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    @media screen and (min-width: 480px){
+
+      margin-top: 15%;
+
+      .login-register {
+        padding: 20px;
+        border: 10px solid $header-text-color;
+        background-color: $home-bg-color;
+      }
+    }
+
+  }
+}

@@ -6,7 +6,7 @@
   padding-top: 10px;
 
   @media screen and (min-width: 480px){
-    border-top: 1px dotted lightgrey;
+    border-top: 1px dotted $dotted-border-color;
   }
 
   .banner {

@@ -98,11 +98,9 @@ router
         description: req.body.description,
       })
       .then((result) => {
-        console.log(req.params.id);
         return res.redirect(302, `/gallery/${Number(req.params.id)}`);
       });
-  })
-  
+  });
 
 router.route('/:id/edit').get((req, res) => {
   new Gallery()
@@ -147,6 +145,12 @@ function fillGallery(userID, photoArray) {
   let context = first[0];
   context.photo = subPhotos;
 
+  let reversed = [];
+
+  for (let i = subPhotos.length - 1; i >= 0; i--) {
+    reversed.push(subPhotos[i]);
+  }
+  context.otherPhoto = reversed;
   return context;
 }
 

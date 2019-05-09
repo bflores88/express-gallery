@@ -63,6 +63,9 @@
     .single-mini {
       width: 100%;
       margin-bottom: 10px;
+      :hover {
+        opacity: 0.65;
+      }
 
       .mini-title {
         text-overflow: ellipsis;
