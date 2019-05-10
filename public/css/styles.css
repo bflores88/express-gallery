@@ -28,7 +28,7 @@
       width: 40%;
       margin: 0px 5px 0px 0px;
       padding: 0px 10px;
-      font-size: 16px;
+      font-size: 1.25vw;
       text-align: initial;
       color: #C8C7C7;
       border-left: 1px solid lightgrey; } }
@@ -38,7 +38,7 @@
   flex-direction: row;
   justify-content: space-around;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 40px;
   border-top: 1px dotted lightgrey;
   border-bottom: 1px dotted lightgrey; }
   .nav-bar .nav-elem {
@@ -49,6 +49,28 @@
     color: #c720c7; }
   .nav-bar :hover {
     color: #7C777D; }
+
+@media screen and (max-width: 480px) {
+  .nav-bar {
+    position: sticky;
+    top: 0;
+    width: 150%;
+    margin-left: -25%;
+    margin-right: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 50px;
+    background-color: lightgrey; }
+    .nav-bar .nav-elem {
+      padding: 5px;
+      font-weight: 600px; }
+    .nav-bar a {
+      text-decoration: none;
+      color: #c720c7; }
+    .nav-bar :hover {
+      color: #7C777D; } }
 
 .main-home {
   width: 100%;
@@ -129,16 +151,15 @@
     height: auto;
     margin-left: auto;
     margin-right: auto; }
-    @media screen and (min-width: 480px) {
+    @media screen and (min-width: 600px) {
       .gallery-head-div .gallery-head-img {
-        max-width: 60%; } }
+        width: 70%; } }
 
 .gallery-minis {
   width: 100%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  flex-direction: column;
+  flex-wrap: wrap;
   padding-bottom: 10px;
   margin-bottom: 10px; }
   .gallery-minis .photo-div {
@@ -146,38 +167,69 @@
     height: auto;
     margin-bottom: 20px;
     flex: 0 0 auto; }
-    .gallery-minis .photo-div .photo-text {
-      width: 100%;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap; }
-    .gallery-minis .photo-div .gallery-mini-img {
+  .gallery-minis .photo-text {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: auto;
+    white-space: nowrap;
+    font-weight: 900;
+    color: #C8C7C7; }
+  .gallery-minis .gallery-mini-img {
+    width: 100%;
+    height: 200px; }
+
+.gallery-minis2 {
+  display: none; }
+
+@media screen and (min-width: 600px) {
+  .gallery-minis {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted lightgrey;
+    height: 220px; }
+    .gallery-minis .photo-div {
+      width: 32%;
+      height: 175px;
+      padding-right: 2%;
+      margin-bottom: 20px;
+      flex: 0 0 auto; }
+    .gallery-minis .gallery-mini-img {
       width: 100%;
       height: 200px; }
-  @media screen and (min-width: 480px) {
-    .gallery-minis {
-      border-bottom: 1px dotted lightgrey;
-      height: 220px; }
-      .gallery-minis .photo-div {
-        width: 32%;
-        height: 175px;
-        padding-right: 2%; }
-        .gallery-minis .photo-div :hover {
-          opacity: 0.65; }
-        .gallery-minis .photo-div .gallery-minis {
-          width: 100%;
-          display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          overflow-x: auto;
-          padding-bottom: 10px;
-          margin-bottom: 10px; }
-          .gallery-minis .photo-div .gallery-minis .gallery-mini-img {
-            width: 100%;
-            height: 200px; }
-      .gallery-minis .photo-text {
-        font-weight: 900;
-        color: #C8C7C7; } }
+  .gallery-minis2 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted lightgrey;
+    height: 220px; }
+  .photo-div {
+    width: 32%;
+    height: 175px;
+    padding-right: 2%;
+    margin-bottom: 20px;
+    flex: 0 0 auto; }
+    .photo-div:hover {
+      opacity: 0.65; }
+  .photo-text {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: auto;
+    white-space: nowrap;
+    font-weight: 900;
+    color: #C8C7C7; }
+  .gallery-mini-img {
+    width: 100%;
+    height: 200px; } }
 
 .detail {
   width: 100%;
@@ -189,7 +241,7 @@
     .detail {
       flex-direction: row;
       justify-content: flex-start;
-      margin-top: 70px; } }
+      margin-top: 50px; } }
   .detail .single-photo {
     width: 100%;
     padding: 50px 0px 20px 0px; }
@@ -197,7 +249,7 @@
       .detail .single-photo {
         width: 55%;
         height: 50vw;
-        overflow: auto;
+        overflow: hidden;
         padding-top: 0px;
         padding-right: 3.5%; } }
     .detail .single-photo .title-detail {
@@ -230,21 +282,28 @@
       font-size: 16px;
       font-weight: 900;
       height: 50vw;
-      overflow: auto; }
+      overflow: hidden; }
       .mini-details .single-mini {
+        margin-top: 20px;
         width: 100%;
-        margin-bottom: 10px; }
-        .mini-details .single-mini :hover {
+        height: 230px;
+        margin-bottom: 10px;
+        z-index: -1; }
+        .mini-details .single-mini .single-mini-div:hover {
           opacity: 0.65; }
         .mini-details .single-mini .mini-title {
           text-overflow: ellipsis;
           overflow: hidden;
           white-space: nowrap;
           text-align: initial; }
-        .mini-details .single-mini .single-mini-div .this-mini-photo {
-          width: 100%; }
+        .mini-details .single-mini .this-mini-photo {
+          width: 100%;
+          height: 200px; }
         .mini-details .single-mini .ed-mini {
-          text-align: center; } }
+          margin-top: -235px;
+          text-align: right;
+          position: relative;
+          z-index: 1; } }
 
 .form-content {
   margin-bottom: 100px; }

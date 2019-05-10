@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-around;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 40px;
   border-top: 1px dotted $dotted-border-color;
   border-bottom: 1px dotted $dotted-border-color;
 
@@ -12,7 +12,6 @@
     font-weight: 600px;
   }
 
-
   a {
     text-decoration: none;
     color: $other-link-color;
@@ -20,4 +19,35 @@
   :hover {
     color: $header-text-color;
   }
+}
+
+@media screen and (max-width: 480px) {
+  .nav-bar {
+    position: sticky;
+    top: 0;
+    width: 150%;
+    margin-left: -25%;
+    margin-right: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 50px;
+    background-color: $dotted-border-color;
+
+  
+    .nav-elem {
+      padding: 5px;
+      font-weight: 600px;
+    }
+  
+    a {
+      text-decoration: none;
+      color: $other-link-color;
+    }
+    :hover {
+      color: $header-text-color;
+    }
+  }
+
 }

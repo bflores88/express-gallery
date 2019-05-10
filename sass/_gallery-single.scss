@@ -5,20 +5,20 @@
   justify-content: center;
   margin-bottom: 50px;
 
-  @media screen and (min-width: 480px){
+  @media screen and (min-width: 480px) {
     flex-direction: row;
     justify-content: flex-start;
-    margin-top: 70px;
+    margin-top: 50px;
   }
 
   .single-photo {
     width: 100%;
     padding: 50px 0px 20px 0px;
 
-    @media screen and (min-width: 480px){
+    @media screen and (min-width: 480px) {
       width: 55%;
       height: 50vw;
-      overflow: auto;
+      overflow: hidden;
       padding-top: 0px;
       padding-right: 3.5%;
     }
@@ -34,7 +34,6 @@
       .this-photo {
         width: 100%;
       }
-
     }
 
     .author-detail {
@@ -48,22 +47,20 @@
 
       .photo-submitted {
         font-size: 14px;
-        font-style: italic
+        font-style: italic;
       }
-
     }
 
-    .description-detail{
+    .description-detail {
       color: $description-text-color;
     }
-
   }
 }
 
 .mini-details {
   display: none;
 
-  @media screen and (min-width: 480px){
+  @media screen and (min-width: 480px) {
     display: block;
     width: 40%;
     margin: 0px 5px 0px 0px;
@@ -71,13 +68,16 @@
     font-size: 16px;
     font-weight: 900;
     height: 50vw;
-    overflow: auto;
-
+    overflow: hidden;
 
     .single-mini {
+      margin-top: 20px;
       width: 100%;
+      height: 230px;
       margin-bottom: 10px;
-      :hover {
+      z-index: -1;
+
+      .single-mini-div:hover {
         opacity: 0.65;
       }
 
@@ -88,15 +88,16 @@
         text-align: initial;
       }
 
-      .single-mini-div {
-
-        .this-mini-photo {
-          width: 100%;
-        }
+      .this-mini-photo {
+        width: 100%;
+        height: 200px;
       }
-      
+
       .ed-mini {
-        text-align: center;
+        margin-top: -235px;
+        text-align: right;
+        position: relative;
+        z-index:1;
       }
     }
   }
