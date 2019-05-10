@@ -16,6 +16,8 @@
   .form-control {
     width: 100%;
     font-size: 18px;
+    height: 30px;
+    overflow-x: auto;
   }
 
   #body-input {
@@ -38,13 +40,7 @@
   }
 }
 
-input {
-  height: 30px;
-  overflow-x: auto;
-}
-
-
-input, textarea {
+.form-control, textarea {
   border: 1px solid $description-text-color;
   border-radius: 6px;
   padding-left: 10px;

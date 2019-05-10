@@ -1,0 +1,23 @@
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 50px;
+  border-top: 1px dotted $dotted-border-color;
+  border-bottom: 1px dotted $dotted-border-color;
+
+  .nav-elem {
+    padding: 5px;
+    font-weight: 600px;
+  }
+
+
+  a {
+    text-decoration: none;
+    color: $other-link-color;
+  }
+  :hover {
+    color: $header-text-color;
+  }
+}

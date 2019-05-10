@@ -113,7 +113,20 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.get('/', (req, res) => {
-  res.render('layouts/home');
+
+  new Gallery()
+  .count('id')
+  .then((idCount) => {
+    let random = Math.floor(Math.random() * idCount);
+
+    new Gallery('id', random)
+    .fetch()
+    .then((result) => {
+      let randomPhoto = result.toJSON();
+      res.render('layouts/home', randomPhoto)
+    })
+  })
+
 });
 
 app.use('/register', register);
@@ -127,7 +140,7 @@ app.use('/gallery', gallery);
 
 app.get('/logout', (req, res) => {
   req.logout();
-  res.send('logged out');
+  res.redirect('/')
 })
 
 

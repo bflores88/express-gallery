@@ -2,28 +2,77 @@
   width: 100%;
   height: 100%;
   margin-bottom: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 
+  .latest-photo {
+    display: none;
+  }
 
-  .home-wrapper {
-    width: 40%;
-    margin-top: 20%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+  @media screen and (min-width: 800px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 70px;
 
-    @media screen and (min-width: 480px){
+    .latest-photo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 50%;
+      max-height: 30vw;
 
-      margin-top: 15%;
+      .latest-photo-div {
+        width: 100%;
 
-      .login-register {
-        padding: 20px;
-        border: 10px solid $header-text-color;
-        background-color: $home-bg-color;
+        .home-image {
+          width: 100%;
+        }
       }
     }
+  }
 
+  .home-wrapper {
+    width: 100%;
+    margin-top: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+
+    .login-register {
+      padding: 20px;
+      border: 7px solid $header-text-color;
+      background-color: $home-bg-color;
+      color: $header-text-color;
+    }
+
+    @media screen and (min-width: 800px) {
+      margin-top: 0%;
+      margin-right: 0%;
+      width: 40%;
+    }
+  }
+}
+
+.login-input {
+  width: 95%;
+  height: 20px;
+  font-size: 16px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px dotted $header-text-color;
+}
+
+.login-prompt {
+  .nav-elem {
+    color: $other-link-color;
+    text-decoration: none;
+
+    a {
+      text-decoration: none;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

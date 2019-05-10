@@ -1,15 +1,33 @@
 <main class="main-home">
 
+<section class="latest-photo">
+  <div class="latest-photo-div">
+    <img src="{{link}}" class="home-image" alt="latest">
+  </div>
+
+</section>
+
 <section class="home-wrapper">
   <div class="login-register">
 
   <div class="login-div">
     <div class="login-prompt">
-      <h3>Returning users</h3>
+      <h3>Happy Day!<br><br>Sign in to view galleries</h3>
     </div>
-    <div class="login-button">
-      <button class="home-nav btn-class"><a href="/login">Log in</a></button>
-    </div>
+    <form action="/login" method="post" role="form" enctype="application/x-www-form-urlencoded">
+      <div>
+          <input type="text" class="login-input" placeholder="Username" name="username"/>
+      </div>
+      <br>
+      <div>
+          <input type="password" class="login-input" placeholder="Password" name="password"/>
+      </div>
+      <div>
+
+        <br>
+          <button type="submit" class="home-nav btn-class" value="Submit"/>Log In</button>
+      </div>
+    </form>
 
   </div>
 
@@ -17,12 +35,8 @@
 
     <div class="login-div">
       <div class="login-prompt">
-        <h3>Don't have an account?</h3>
+        <h3>OR...<br><br>Create an account&nbsp;<a href="/register" class="nav-elem">here</a>!</h3>
       </div>
-      <div class="login-button">
-        <button class="home-nav btn-class"><a href="/register">Register</a></button>
-      </div>
-
     </div>
 
 </section>

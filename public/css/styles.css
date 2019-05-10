@@ -14,7 +14,7 @@
     font-weight: 900;
     color: #7C777D;
     text-align: center; }
-    @media screen and (min-width: 480px) {
+    @media screen and (min-width: 900px) {
       .header-div .banner {
         width: 60%;
         font-size: 4.5vw;
@@ -22,37 +22,90 @@
 
 .banner-info {
   display: none; }
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 900px) {
     .banner-info {
       display: block;
       width: 40%;
       margin: 0px 5px 0px 0px;
       padding: 0px 10px;
+      font-size: 16px;
       text-align: initial;
       color: #C8C7C7;
-      border-left: 1px solid lightgrey;
-      font-size: 16px; } }
+      border-left: 1px solid lightgrey; } }
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 50px;
+  border-top: 1px dotted lightgrey;
+  border-bottom: 1px dotted lightgrey; }
+  .nav-bar .nav-elem {
+    padding: 5px;
+    font-weight: 600px; }
+  .nav-bar a {
+    text-decoration: none;
+    color: #c720c7; }
+  .nav-bar :hover {
+    color: #7C777D; }
 
 .main-home {
   width: 100%;
   height: 100%;
-  margin-bottom: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; }
+  margin-bottom: 100px; }
+  .main-home .latest-photo {
+    display: none; }
+  @media screen and (min-width: 800px) {
+    .main-home {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 70px; }
+      .main-home .latest-photo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+        max-height: 30vw; }
+        .main-home .latest-photo .latest-photo-div {
+          width: 100%; }
+          .main-home .latest-photo .latest-photo-div .home-image {
+            width: 100%; } }
   .main-home .home-wrapper {
-    width: 40%;
+    width: 100%;
     margin-top: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     margin-left: auto;
-    margin-right: auto;
-    text-align: center; }
-    @media screen and (min-width: 480px) {
+    margin-right: auto; }
+    .main-home .home-wrapper .login-register {
+      padding: 20px;
+      border: 7px solid #7C777D;
+      background-color: rgba(241, 241, 241, 0.5);
+      color: #7C777D; }
+    @media screen and (min-width: 800px) {
       .main-home .home-wrapper {
-        margin-top: 15%; }
-        .main-home .home-wrapper .login-register {
-          padding: 20px;
-          border: 10px solid #7C777D;
-          background-color: rgba(241, 241, 241, 0.5); } }
+        margin-top: 0%;
+        margin-right: 0%;
+        width: 40%; } }
+
+.login-input {
+  width: 95%;
+  height: 20px;
+  font-size: 16px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px dotted #7C777D; }
+
+.login-prompt .nav-elem {
+  color: #c720c7;
+  text-decoration: none; }
+  .login-prompt .nav-elem a {
+    text-decoration: none; }
+  .login-prompt .nav-elem:hover {
+    text-decoration: underline; }
 
 .gallery-main {
   width: 100%;
@@ -155,8 +208,14 @@
       .detail .single-photo .photo-detail .this-photo {
         width: 100%; }
     .detail .single-photo .author-detail {
-      margin-top: 30px;
+      margin: 30px 0px 30px 0px;
       color: #C8C7C7; }
+      .detail .single-photo .author-detail .photo-author {
+        font-size: 16px;
+        font-stretch: extra-expanded; }
+      .detail .single-photo .author-detail .photo-submitted {
+        font-size: 14px;
+        font-style: italic; }
     .detail .single-photo .description-detail {
       color: #A29B91; }
 
@@ -200,7 +259,9 @@
     margin-bottom: 20px; }
   .input-form .form-control {
     width: 100%;
-    font-size: 18px; }
+    font-size: 18px;
+    height: 30px;
+    overflow-x: auto; }
   .input-form #body-input {
     height: 200px; }
   .input-form .button-div, .input-form .btn-edit {
@@ -214,11 +275,7 @@
     margin-left: auto;
     margin-right: auto; }
 
-input {
-  height: 30px;
-  overflow-x: auto; }
-
-input, textarea {
+.form-control, textarea {
   border: 1px solid #A29B91;
   border-radius: 6px;
   padding-left: 10px; }
@@ -238,3 +295,13 @@ body {
   background-image: url("../../assets/sayagata-400px.png");
   background-repeat: repeat;
   font-family: Arial, Helvetica, sans-serif; }
+
+button {
+  padding: 5px 10px;
+  background-color: #c720c7;
+  color: #C8C7C7;
+  border-radius: 3px 12px;
+  font-size: 14px; }
+  button:hover {
+    background-color: #C8C7C7;
+    color: #7C777D; }

@@ -3,9 +3,11 @@ $link-text-color: #C8C7C7;
 $description-text-color: #A29B91;
 $dotted-border-color: lightgrey;
 $home-bg-color: rgba(241, 241, 241, 0.5);
+$other-link-color: #c720c7;
 
 
 @import '_header';
+@import '_nav';
 @import '_home';
 @import '_gallery-all';
 @import '_gallery-single';
@@ -19,4 +21,16 @@ body {
   background-image: url("../../assets/sayagata-400px.png");
   background-repeat: repeat;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: $other-link-color;
+  color: $link-text-color;
+  border-radius: 3px 12px;
+  font-size: 14px;
+  &:hover{
+    background-color: $link-text-color;
+    color: $header-text-color;
+  }
 }
