@@ -1,5 +1,16 @@
 version: '3'
 services:
+  # express-gallery:
+  #   build: .
+  #   image: brenda/express-gallery:1.0
+  #   ports:
+  #     - 3000:3000
+  #   volumes:
+  #     - ./:/app
+  #   env_file: .env
+  #   networks:
+  #     - my-app-network
+
   postgres-primary-db:
     image: postgres:10.0-alpine
     env_file: .env
@@ -9,6 +20,7 @@ services:
       - '${POSTGRES_HOST_PORT}:${POSTGRES_CONTAINER_PORT}'
     networks:
       - my-app-network
+
   redis-server:
     image: redis:4.0-alpine
     env_file: .env

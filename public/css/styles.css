@@ -60,18 +60,25 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 30px; }
+  margin-top: 30px;
+  margin-bottom: 50px; }
 
 .gallery-head-div {
   width: 100%;
   padding-bottom: 10px;
   margin-bottom: 10px;
+  text-align: center;
   border-bottom: 1px dotted lightgrey; }
   .gallery-head-div:hover {
     opacity: 0.65; }
   .gallery-head-div .gallery-head-img {
     width: 100%;
-    height: auto; }
+    height: auto;
+    margin-left: auto;
+    margin-right: auto; }
+    @media screen and (min-width: 480px) {
+      .gallery-head-div .gallery-head-img {
+        max-width: 60%; } }
 
 .gallery-minis {
   width: 100%;
@@ -96,27 +103,28 @@
       height: 200px; }
   @media screen and (min-width: 480px) {
     .gallery-minis {
-      border-bottom: 1px dotted lightgrey; }
+      border-bottom: 1px dotted lightgrey;
+      height: 220px; }
       .gallery-minis .photo-div {
         width: 32%;
         height: 175px;
         padding-right: 2%; }
         .gallery-minis .photo-div :hover {
           opacity: 0.65; }
-        .gallery-minis .photo-div .gallery-mini-img {
+        .gallery-minis .photo-div .gallery-minis {
           width: 100%;
-          height: 150px; }
-        .gallery-minis .photo-div .photo-text {
-          font-weight: 900;
-          color: #C8C7C7; } }
-
-.edit-delete {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 10px; }
-  .edit-delete .edit-delete-button:last-child {
-    margin-left: 10px; }
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          padding-bottom: 10px;
+          margin-bottom: 10px; }
+          .gallery-minis .photo-div .gallery-minis .gallery-mini-img {
+            width: 100%;
+            height: 200px; }
+      .gallery-minis .photo-text {
+        font-weight: 900;
+        color: #C8C7C7; } }
 
 .detail {
   width: 100%;
@@ -128,13 +136,15 @@
     .detail {
       flex-direction: row;
       justify-content: flex-start;
-      margin-top: 100px; } }
+      margin-top: 70px; } }
   .detail .single-photo {
     width: 100%;
     padding: 50px 0px 20px 0px; }
     @media screen and (min-width: 480px) {
       .detail .single-photo {
         width: 55%;
+        height: 50vw;
+        overflow: auto;
         padding-top: 0px;
         padding-right: 3.5%; } }
     .detail .single-photo .title-detail {
@@ -157,10 +167,11 @@
       display: block;
       width: 40%;
       margin: 0px 5px 0px 0px;
-      text-align: initial;
       color: #C8C7C7;
       font-size: 16px;
-      font-weight: 900; }
+      font-weight: 900;
+      height: 50vw;
+      overflow: auto; }
       .mini-details .single-mini {
         width: 100%;
         margin-bottom: 10px; }
@@ -169,9 +180,15 @@
         .mini-details .single-mini .mini-title {
           text-overflow: ellipsis;
           overflow: hidden;
-          white-space: nowrap; }
+          white-space: nowrap;
+          text-align: initial; }
         .mini-details .single-mini .single-mini-div .this-mini-photo {
-          width: 100%; } }
+          width: 100%; }
+        .mini-details .single-mini .ed-mini {
+          text-align: center; } }
+
+.form-content {
+  margin-bottom: 100px; }
 
 .input-form {
   width: 100%;
@@ -186,15 +203,32 @@
     font-size: 18px; }
   .input-form #body-input {
     height: 200px; }
-  .input-form .button-div, .input-form .btn-submit {
+  .input-form .button-div, .input-form .btn-edit {
     text-align: center; }
 
 .edit-image-div {
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 50px; }
   .edit-image-div .edit-current-image {
     width: 70%;
     margin-left: auto;
     margin-right: auto; }
+
+input {
+  height: 30px;
+  overflow-x: auto; }
+
+input, textarea {
+  border: 1px solid #A29B91;
+  border-radius: 6px;
+  padding-left: 10px; }
+
+textarea {
+  overflow-y: auto; }
+
+.delete-option {
+  margin-top: 50px;
+  text-align: center; }
 
 body {
   margin: 0px;

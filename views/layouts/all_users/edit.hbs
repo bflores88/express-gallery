@@ -1,11 +1,6 @@
-<div class="form-content">
+ {{> nav}}
 
-  <section class="new-error-handler">
-    <div>
-      <h3 class="errorTitle">{{errorTitle}}</h3>
-      <p class="errorBody">{{errorBody}}</p>
-    </div>
-  </section>
+<div class="form-content">
 
   <section class="input-form">
 
@@ -38,7 +33,7 @@
       </div>
 
       <div class="buttonDiv">
-        <button type="submit" class="btn-submit" value="OK">Submit</button>
+        <button type="submit" class="btn-edit btn-class" value="OK">Submit</button>
       </div>
 
     </form>
@@ -52,7 +47,7 @@
     <div class="edit-delete-button">
           <form action="/gallery/{{id}}?_method=DELETE" method="post" role="form"
             enctype="application/x-www-form-urlencoded">
-            <button type="submit" class="btn-edit" value="ok">Delete</button>
+            <button type="submit" class="btn-edit btn-class" value="ok">Delete</button>
           </form>
      </div>
   </section>
