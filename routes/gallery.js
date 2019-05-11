@@ -16,10 +16,11 @@ router
       .then((result) => {
         let allPlants = result.models;
         let context = fillGallery(currentUser, allPlants);
-        res.render('layouts/all_users/gallery', context);
+        return res.status(200).render('layouts/all_users/gallery', context);
       })
       .catch((err) => {
-        res.send('{ message: Database Error');
+        //maybe if have time log the error to an error log??
+        return res.redirect(302, '/internalError');
       });
   })
   .post((req, res) => {
@@ -35,13 +36,13 @@ router
         return res.redirect(302, '/gallery');
       })
       .catch((err) => {
-        console.log('error', err);
-        return res.status(500).send('{ message: error }');
+        //maybe if have time log the error to an error log??
+        return res.redirect(302, '/internalError');
       });
   });
 
 router.route('/new').get((req, res) => {
-  res.render('layouts/all_users/new');
+  return res.status(200).render('layouts/all_users/new');
 });
 
 router
@@ -82,13 +83,27 @@ router
             context.photo = fillSideGallery(galleryObject, req.user.id, req.user.role);
 
             return res.status(200).render('layouts/all_users/single', context);
+          })
+          .catch((err) => {
+            //maybe if have time log the error to an error log??
+            return res.redirect(302, '/internalError');
           });
+      })
+      .catch((err) => {
+        //maybe if have time log the error to an error log??
+        return res.redirect(302, '/internalError');
       });
   })
   .delete((req, res) => {
-    new Gallery({ id: req.params.id }).destroy().then((result) => {
-      return res.redirect(302, '/gallery');
-    });
+    new Gallery({ id: req.params.id })
+      .destroy()
+      .then((result) => {
+        return res.redirect(302, '/gallery');
+      })
+      .catch((err) => {
+        //maybe if have time log the error to an error log??
+        return res.redirect(302, '/internalError');
+      });
   })
   .put((req, res) => {
     new Gallery('id', req.params.id)
@@ -101,6 +116,10 @@ router
       })
       .then((result) => {
         return res.redirect(302, `/gallery/${Number(req.params.id)}`);
+      })
+      .catch((err) => {
+        //maybe if have time log the error to an error log??
+        return res.redirect(302, '/internalError');
       });
   });
 
@@ -117,11 +136,12 @@ router.route('/:id/edit').get((req, res) => {
         id: result.get('id'),
       };
 
-      res.render('layouts/all_users/edit', context);
+      return res.status(200).render('layouts/all_users/edit', context);
+    })
+    .catch((err) => {
+      //maybe if have time log the error to an error log??
+      return res.redirect(302, '/internalError');
     });
-
-  //see a form to edit a gallery phot
-  //show form fields author, link, description
 });
 
 function fillGallery(userID, photoArray) {

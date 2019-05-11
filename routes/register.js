@@ -15,12 +15,16 @@ router
     bcrypt.genSalt(saltRounds, (err, salt) => {
       if (err) {
         console.log(err);
-      } //return 500
+        //maybe if have time log the error to an error log??
+        return res.redirect(302, '/internalError');
+      }
 
       bcrypt.hash(req.body.password, salt, (err, hash) => {
         if (err) {
           console.log(err);
-        } //return 500
+          //maybe if have time log the error to an error log??
+          return res.redirect(302, '/internalError');
+        }
 
         return new User({
           username: req.body.username,
@@ -33,8 +37,8 @@ router
             return res.redirect(302, '/login');
           })
           .catch((err) => {
-            console.log(err);
-            return res.send('Error creating account');
+            //maybe if have time log the error to an error log??
+            return res.redirect(302, '/internalError');
           });
       });
     });

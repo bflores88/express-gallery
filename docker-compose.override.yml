@@ -3,6 +3,7 @@ services:
   express-gallery:
     ports:
       - 3000:3000
+    command: ["./node_modules/.bin/nodemon", "server.js"]
     volumes:
       - ./:/app
     env_file: .env

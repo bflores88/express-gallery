@@ -85,8 +85,8 @@ passport.use(
         }
       })
       .catch((err) => {
-        console.log('error: ', err);
-        return done(err);
+        //maybe if have time log the error to an error log??
+        return res.redirect(302, '/internalError');
       });
   }),
 );
@@ -111,6 +111,10 @@ passport.deserializeUser(function(user, done) {
       role: user.role_id
     })
   })
+  .catch((err) => {
+    //maybe if have time log the error to an error log??
+    return res.redirect(302, '/internalError');
+  })
 });
 
 app.get('/', (req, res) => {
@@ -124,14 +128,26 @@ app.get('/', (req, res) => {
     .fetch()
     .then((result) => {
       let randomPhoto = result.toJSON();
-      res.render('layouts/home', randomPhoto)
+      return res.render('layouts/home', randomPhoto)
     })
+    .catch((err) => {
+      //maybe if have time log the error to an error log??
+      return res.redirect(302, '/internalError');
+    })
+  })
+  .catch((err) => {
+    //maybe if have time log the error to an error log??
+    return res.redirect(302, '/internalError');
   })
 
 });
 
 app.use('/register', register);
 app.use('/login', login);
+
+app.get('/internalError', (req, res) => {
+  return res.status(500).render('layouts/500');
+})
 
 app.use(guard, (req, res, next) => {
   next();
@@ -144,8 +160,6 @@ app.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/')
 })
-
-
 
 const server = app.listen(PORT, () => {
   console.log(`Express app is running at port ${PORT}`);
