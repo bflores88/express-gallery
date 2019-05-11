@@ -15,9 +15,10 @@ const flash = require('connect-flash');
 const User = require('./database/models/User');
 const Gallery = require('./database/models/Gallery');
 
-const gallery = require('./routes/gallery.js');
 const register = require('./routes/register.js');
 const login = require('./routes/login.js');
+const gallery = require('./routes/gallery.js');
+const users = require('./routes/users.js');
 
 
 const PORT = 3000;
@@ -137,6 +138,7 @@ app.use(guard, (req, res, next) => {
 })
 
 app.use('/gallery', gallery);
+app.use('/users', users);
 
 app.get('/logout', (req, res) => {
   req.logout();
