@@ -1,0 +1,34 @@
+{{> nav}}
+
+<main class="main-user">
+
+  <div class="main-username">
+    {{username}}
+  </div>
+
+  <section class="user-images">
+    {{#each userImage}}
+    <div class="image-card">
+      <div class="image">
+        <a href="/gallery/{{id}}/edit"><img src="{{link}}" class="single-img" loading="lazy" alt="{{title}}"></a>
+        
+      </div>
+
+      <div class="image-card-detail">
+        <div class="image-card-title">
+          {{title}}
+        </div>
+
+        <div class="image-author">
+          Photo by:&nbsp;{{author}}
+        </div>
+
+        <div class="image-card-updated">
+          Last updated:&nbsp;{{updated_at}}
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </section>
+
+</main>

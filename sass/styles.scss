@@ -1,5 +1,5 @@
 $header-text-color: #7C777D;
-$link-text-color: #C8C7C7;
+$link-text-color: rgb(182, 178, 178);
 $description-text-color: #A29B91;
 $dotted-border-color: lightgrey;
 $home-bg-color: rgba(241, 241, 241, 0.5);
@@ -13,6 +13,7 @@ $text-font: Arial, Helvetica, sans-serif;
 @import '_home';
 @import '_gallery-all';
 @import '_gallery-single';
+@import '_user-gallery';
 @import '_forms';
 @import '_error';
 
@@ -40,4 +41,14 @@ button {
 
 .fas {
   height: 20px;
+}
+
+a {
+  color: $other-link-color;
+  font-weight: 700;
+  text-decoration: none;
+  &:hover {
+    font-style: oblique;
+    font-weight: 900;
+  }
 }

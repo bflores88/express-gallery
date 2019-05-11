@@ -42,7 +42,8 @@ router
   });
 
 router.route('/new').get((req, res) => {
-  return res.status(200).render('layouts/all_users/new');
+  let context = { user_id: req.user.id };
+  return res.status(200).render('layouts/all_users/new', context);
 });
 
 router
@@ -68,6 +69,7 @@ router
           description: resultObject.description,
           display: displayStyle,
           id: resultObject.id,
+          user_id: req.user.id
         };
 
         return context;
@@ -134,6 +136,7 @@ router.route('/:id/edit').get((req, res) => {
         link: result.get('link'),
         description: result.get('description'),
         id: result.get('id'),
+        user_id: req.user.id
       };
 
       return res.status(200).render('layouts/all_users/edit', context);

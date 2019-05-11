@@ -48,7 +48,7 @@
   .photo-text {
     width: 100%;
     text-overflow: ellipsis;
-    overflow: auto;
+    overflow: hidden;
     white-space: nowrap;
     font-weight: 900;
     color: $link-text-color;

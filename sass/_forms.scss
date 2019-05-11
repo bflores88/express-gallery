@@ -1,5 +1,10 @@
 .form-content {
-  margin-bottom: 100px
+  margin-top: 5vw;
+  margin-bottom: 100px;
+  padding: 20px;
+  border: 7px solid $header-text-color;
+  background-color: $home-bg-color;
+  color: $header-text-color;
 }
 
 .input-form {
@@ -18,6 +23,9 @@
     font-size: 18px;
     height: 30px;
     overflow-x: auto;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px dotted $header-text-color;
   }
 
   #body-input {
@@ -40,14 +48,13 @@
   }
 }
 
-.form-control, textarea {
-  border: 1px solid $description-text-color;
-  border-radius: 6px;
-  padding-left: 10px;
-}
-
-textarea {
+.form-control-desc {
+  width: 100%;
   overflow-y: auto;
+  font-size: 16px;
+  border: 1px dotted $header-text-color;
+  background-color: transparent;
+  overflow-y: auto
 }
 
 .delete-option {

@@ -1,0 +1,64 @@
+.main-user {
+  width: 100%;
+  margin-top: 5vw;
+}
+
+.user-images {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media screen and (min-width: 800px){
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+}
+
+.image-card {
+  width: 100%;
+  height: auto;
+  padding: 20px 0px;
+  
+
+  @media screen and (min-width: 800px){
+    width: 45%;
+    height: auto
+  }
+}
+
+.image-card-detail {
+  display: none;
+
+}
+
+.image {
+  width: 100%;
+  position: relative;
+  z-index:1;
+  :hover {
+    opacity: 0.80;
+  }
+
+  .single-img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 800px){
+  .image:hover + .image-card-detail {
+    display: block;
+    position: relative;
+    top: -50%;
+    text-align: center;
+    z-index:2;
+    font-family: $text-font;
+    color: black;
+    background-color: $home-bg-color
+  }
+}
+
+
+
