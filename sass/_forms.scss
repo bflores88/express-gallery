@@ -5,6 +5,11 @@
   border: 7px solid $header-text-color;
   background-color: $home-bg-color;
   color: $header-text-color;
+
+  @media screen and (max-width: 480px){
+    border: none;
+    background-color: transparent;
+  }
 }
 
 .input-form {
@@ -42,9 +47,19 @@
   margin-bottom: 50px;
 
   .edit-current-image {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .edit-current-image {
     width: 70%;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+
   }
 }
 
@@ -54,7 +69,8 @@
   font-size: 16px;
   border: 1px dotted $header-text-color;
   background-color: transparent;
-  overflow-y: auto
+  overflow-y: auto;
+  font-family: $text-font;
 }
 
 .delete-option {

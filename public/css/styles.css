@@ -4,16 +4,19 @@
   flex-direction: row;
   justify-content: space-between;
   padding-top: 10px; }
-  @media screen and (min-width: 480px) {
+  @media screen and (max-width: 480px) {
     .header-div {
       border-top: 1px dotted lightgrey; } }
   .header-div .banner {
     width: 100%;
-    font-size: 10vw;
+    font-size: 35px;
     padding-top: 5px;
     font-weight: 900;
     color: #7C777D;
     text-align: center; }
+    @media screen and (min-width: 400px) {
+      .header-div .banner {
+        font-size: 50px; } }
     @media screen and (min-width: 900px) {
       .header-div .banner {
         width: 60%;
@@ -52,25 +55,26 @@
 
 @media screen and (max-width: 480px) {
   .nav-bar {
-    position: sticky;
-    top: 0;
-    width: 150%;
-    margin-left: -25%;
-    margin-right: 25%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    text-align: center;
-    margin-top: 50px;
-    background-color: lightgrey; }
-    .nav-bar .nav-elem {
-      padding: 5px;
-      font-weight: 600px; }
-    .nav-bar a {
-      text-decoration: none;
-      color: #c720c7; }
-    .nav-bar :hover {
-      color: #7C777D; } }
+    display: none; } }
+
+.nav-small-bar {
+  display: none; }
+  @media screen and (max-width: 480px) {
+    .nav-small-bar {
+      font-size: 8vw;
+      width: 100%;
+      height: 10vw;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      background-color: lightgrey;
+      padding-top: 2%;
+      margin-bottom: 2vw; }
+      .nav-small-bar .small-nav-elem {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center; } }
 
 .main-home {
   width: 100%;
@@ -96,7 +100,7 @@
             width: 100%; } }
   .main-home .home-wrapper {
     width: 100%;
-    margin-top: 20%;
+    margin-top: 10%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -104,9 +108,11 @@
     margin-right: auto; }
     .main-home .home-wrapper .login-register {
       padding: 20px;
-      border: 7px solid #7C777D;
-      background-color: rgba(241, 241, 241, 0.5);
       color: #7C777D; }
+      @media screen and (min-width: 480px) {
+        .main-home .home-wrapper .login-register {
+          border: 7px solid #7C777D;
+          background-color: rgba(241, 241, 241, 0.5); } }
     @media screen and (min-width: 800px) {
       .main-home .home-wrapper {
         margin-top: 0%;
@@ -136,7 +142,12 @@
   flex-direction: column;
   justify-content: center;
   margin-top: 30px;
-  margin-bottom: 50px; }
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto; }
+  @media screen and (max-width: 480px) {
+    .gallery-main {
+      width: 90%; } }
 
 .gallery-head-div {
   width: 100%;
@@ -176,7 +187,7 @@
     color: #b6b2b2; }
   .gallery-minis .gallery-mini-img {
     width: 100%;
-    height: 200px; }
+    height: auto; }
 
 .gallery-minis2 {
   display: none; }
@@ -191,7 +202,7 @@
     padding-bottom: 15px;
     margin-bottom: 10px;
     border-bottom: 1px dotted lightgrey;
-    height: 220px; }
+    height: 230px; }
     .gallery-minis .photo-div {
       width: 32%;
       height: 175px;
@@ -211,7 +222,7 @@
     padding-bottom: 15px;
     margin-bottom: 10px;
     border-bottom: 1px dotted lightgrey;
-    height: 220px; }
+    height: 230px; }
   .photo-div {
     width: 32%;
     height: 175px;
@@ -229,23 +240,26 @@
     color: #b6b2b2; }
   .gallery-mini-img {
     width: 100%;
-    height: 200px; } }
+    height: auto; } }
 
 .detail {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 50px; }
-  @media screen and (min-width: 480px) {
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto; }
+  @media screen and (min-width: 600px) {
     .detail {
+      width: 100%;
       flex-direction: row;
       justify-content: flex-start;
       margin-top: 50px; } }
   .detail .single-photo {
     width: 100%;
     padding: 50px 0px 20px 0px; }
-    @media screen and (min-width: 480px) {
+    @media screen and (min-width: 600px) {
       .detail .single-photo {
         width: 55%;
         height: 50vw;
@@ -254,7 +268,8 @@
         padding-right: 3.5%; } }
     .detail .single-photo .title-detail {
       color: #b6b2b2;
-      font-weight: 900; }
+      font-weight: 900;
+      font-family: "Raleway", sans-serif; }
     .detail .single-photo .photo-detail {
       margin: 20px 0px 20px 0px; }
       .detail .single-photo .photo-detail .this-photo {
@@ -273,7 +288,7 @@
 
 .mini-details {
   display: none; }
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 600px) {
     .mini-details {
       display: block;
       width: 40%;
@@ -295,7 +310,8 @@
           text-overflow: ellipsis;
           overflow: hidden;
           white-space: nowrap;
-          text-align: initial; }
+          text-align: initial;
+          font-family: "Raleway", sans-serif; }
         .mini-details .single-mini .this-mini-photo {
           width: 100%;
           height: 200px; }
@@ -306,8 +322,21 @@
           z-index: 1; } }
 
 .main-user {
-  width: 100%;
-  margin-top: 5vw; }
+  width: 90%;
+  margin-top: 5vw;
+  margin-left: auto;
+  margin-right: auto; }
+  @media screen and (min-width: 480px) {
+    .main-user {
+      width: 100%; } }
+
+.main-username {
+  font-weight: 900;
+  font-size: 40px;
+  font-stretch: extra-expanded;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #c720c7; }
 
 .user-images {
   width: 100%;
@@ -323,7 +352,7 @@
 .image-card {
   width: 100%;
   height: auto;
-  padding: 20px 0px; }
+  padding: 1vw 0vw; }
   @media screen and (min-width: 800px) {
     .image-card {
       width: 45%;
@@ -349,7 +378,7 @@
     top: -50%;
     text-align: center;
     z-index: 2;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Pavanam", sans-serif;
     color: black;
     background-color: rgba(241, 241, 241, 0.5); } }
 
@@ -360,6 +389,10 @@
   border: 7px solid #7C777D;
   background-color: rgba(241, 241, 241, 0.5);
   color: #7C777D; }
+  @media screen and (max-width: 480px) {
+    .form-content {
+      border: none;
+      background-color: transparent; } }
 
 .input-form {
   width: 100%;
@@ -386,9 +419,15 @@
   width: 100%;
   margin-bottom: 50px; }
   .edit-image-div .edit-current-image {
-    width: 70%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto; }
+
+@media screen and (max-width: 480px) {
+  .edit-current-image {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto; } }
 
 .form-control-desc {
   width: 100%;
@@ -396,7 +435,8 @@
   font-size: 16px;
   border: 1px dotted #7C777D;
   background-color: transparent;
-  overflow-y: auto; }
+  overflow-y: auto;
+  font-family: "Pavanam", sans-serif; }
 
 .delete-option {
   margin-top: 50px;
@@ -415,12 +455,12 @@
   .error-main .db-err {
     font-size: 4vw;
     font-weight: 600;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Raleway", sans-serif;
     margin-bottom: 20px;
     color: black; }
   .error-main .db-sorry {
     font-size: 2vw;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Pavanam", sans-serif;
     color: #A29B91;
     margin-bottom: 30px; }
   .error-main .error-go-back a {
@@ -436,9 +476,12 @@ body {
   padding-top: 5%;
   padding-left: 15%;
   padding-right: 15%;
-  background-image: url("../../assets/sayagata-400px.png");
+  background-image: url("../../assets/memphis-mini.png");
   background-repeat: repeat;
-  font-family: Arial, Helvetica, sans-serif; }
+  font-family: "Pavanam", sans-serif; }
+  @media screen and (max-width: 480px) {
+    body {
+      padding: 0px; } }
 
 button {
   padding: 5px 10px;
@@ -456,7 +499,8 @@ button {
 a {
   color: #c720c7;
   font-weight: 700;
-  text-decoration: none; }
+  text-decoration: none;
+  font-family: "Barlow", sans-serif; }
   a:hover {
     font-style: oblique;
     font-weight: 900; }

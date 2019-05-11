@@ -4,9 +4,10 @@ $description-text-color: #A29B91;
 $dotted-border-color: lightgrey;
 $home-bg-color: rgba(241, 241, 241, 0.5);
 $other-link-color: #c720c7;
-$header-font: Arial, Helvetica, sans-serif;
-$title-font: Arial, Helvetica, sans-serif;
-$text-font: Arial, Helvetica, sans-serif;
+$header-font: 'Hind Vadodara', sans-serif;
+$title-font: 'Raleway', sans-serif;
+$text-font: 'Pavanam', sans-serif;
+$link-text: 'Barlow', sans-serif;
 
 @import '_header';
 @import '_nav';
@@ -22,9 +23,13 @@ body {
   padding-top: 5%;
   padding-left: 15%;
   padding-right: 15%;
-  background-image: url("../../assets/sayagata-400px.png");
+  background-image: url("../../assets/memphis-mini.png");
   background-repeat: repeat;
   font-family: $text-font;
+
+  @media screen and (max-width: 480px){
+    padding: 0px;
+  }
 }
 
 button {
@@ -47,6 +52,7 @@ a {
   color: $other-link-color;
   font-weight: 700;
   text-decoration: none;
+  font-family: $link-text;
   &:hover {
     font-style: oblique;
     font-weight: 900;

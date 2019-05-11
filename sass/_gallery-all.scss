@@ -6,6 +6,12 @@
   justify-content: center;
   margin-top: 30px;
   margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (max-width: 480px){
+    width: 90%;
+  }
 }
 
 .gallery-head-div {
@@ -56,7 +62,7 @@
 
   .gallery-mini-img {
     width: 100%;
-    height: 200px;
+    height: auto;
   }
 }
 
@@ -74,7 +80,7 @@
     padding-bottom: 15px;
     margin-bottom: 10px;
     border-bottom: 1px dotted $dotted-border-color;
-    height: 220px;
+    height: 230px;
 
     .photo-div {
       width: 32%;
@@ -86,7 +92,7 @@
 
     .gallery-mini-img {
       width: 100%;
-      height: 200px;
+      height: auto;
     }
   }
 
@@ -100,7 +106,7 @@
     padding-bottom: 15px;
     margin-bottom: 10px;
     border-bottom: 1px dotted $dotted-border-color;
-    height: 220px;
+    height: 230px;
   }
 
   .photo-div {
@@ -125,6 +131,6 @@
 
   .gallery-mini-img {
     width: 100%;
-    height: 200px;
+    height: auto;
   }
 }

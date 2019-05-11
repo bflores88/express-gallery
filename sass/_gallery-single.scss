@@ -1,11 +1,14 @@
 .detail {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
 
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width:600px) {
+    width: 100%;
     flex-direction: row;
     justify-content: flex-start;
     margin-top: 50px;
@@ -15,7 +18,7 @@
     width: 100%;
     padding: 50px 0px 20px 0px;
 
-    @media screen and (min-width: 480px) {
+    @media screen and (min-width: 600px) {
       width: 55%;
       height: 50vw;
       overflow: auto;
@@ -26,6 +29,7 @@
     .title-detail {
       color: $link-text-color;
       font-weight: 900;
+      font-family: $title-font;
     }
 
     .photo-detail {
@@ -60,7 +64,7 @@
 .mini-details {
   display: none;
 
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 600px) {
     display: block;
     width: 40%;
     margin: 0px 5px 0px 0px;
@@ -86,6 +90,7 @@
         overflow: hidden;
         white-space: nowrap;
         text-align: initial;
+        font-family: $title-font;
       }
 
       .this-mini-photo {
