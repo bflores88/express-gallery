@@ -4,7 +4,7 @@
   flex-direction: row;
   justify-content: space-between;
   padding-top: 10px; }
-  @media screen and (max-width: 480px) {
+  @media screen and (min-width: 480px) {
     .header-div {
       border-top: 1px dotted lightgrey; } }
   .header-div .banner {
@@ -41,7 +41,7 @@
   flex-direction: row;
   justify-content: space-around;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 20px;
   border-top: 1px dotted lightgrey;
   border-bottom: 1px dotted lightgrey; }
   .nav-bar .nav-elem {
@@ -49,7 +49,8 @@
     font-weight: 600px; }
   .nav-bar a {
     text-decoration: none;
-    color: #c720c7; }
+    color: #c720c7;
+    font-size: 20px; }
   .nav-bar :hover {
     color: #7C777D; }
 
@@ -68,8 +69,9 @@
       flex-direction: row;
       justify-content: space-evenly;
       background-color: lightgrey;
-      padding-top: 2%;
-      margin-bottom: 2vw; }
+      margin-bottom: 2vw;
+      position: sticky;
+      top: 0; }
       .nav-small-bar .small-nav-elem {
         display: flex;
         flex-direction: column;
@@ -93,7 +95,8 @@
         flex-direction: column;
         justify-content: center;
         width: 50%;
-        max-height: 30vw; }
+        max-height: 30vw;
+        color: #b6b2b2; }
         .main-home .latest-photo .latest-photo-div {
           width: 100%; }
           .main-home .latest-photo .latest-photo-div .home-image {
@@ -121,7 +124,7 @@
 
 .login-input {
   width: 95%;
-  height: 20px;
+  height: 30px;
   font-size: 16px;
   border: none;
   background-color: transparent;
@@ -205,7 +208,7 @@
     min-height: 200px; }
     .gallery-minis .photo-div {
       width: 32%;
-      height: 175px;
+      height: 200px;
       padding-right: 2%;
       margin-bottom: 20px;
       flex: 0 0 auto; }
@@ -225,7 +228,7 @@
     min-height: 200px; }
   .photo-div {
     width: 32%;
-    height: 175px;
+    height: 200px;
     padding-right: 2%;
     margin-bottom: 20px;
     flex: 0 0 auto; }
@@ -269,7 +272,11 @@
     .detail .single-photo .title-detail {
       color: #b6b2b2;
       font-weight: 900;
-      font-family: "Raleway", sans-serif; }
+      font-family: "Raleway", sans-serif;
+      font-size: 16px; }
+      @media screen and (min-width: 600px) {
+        .detail .single-photo .title-detail {
+          font-size: 25px; } }
     .detail .single-photo .photo-detail {
       margin: 20px 0px 20px 0px; }
       .detail .single-photo .photo-detail .this-photo {
@@ -301,7 +308,7 @@
       .mini-details .single-mini {
         margin-top: 20px;
         width: 100%;
-        height: 230px;
+        height: 240px;
         margin-bottom: 10px;
         z-index: -1; }
         .mini-details .single-mini .single-mini-div:hover {
@@ -314,9 +321,9 @@
           font-family: "Raleway", sans-serif; }
         .mini-details .single-mini .this-mini-photo {
           width: 100%;
-          height: 200px; }
+          height: 210px; }
         .mini-details .single-mini .ed-mini {
-          margin-top: -235px;
+          margin-top: -240px;
           text-align: right;
           position: relative;
           z-index: 1; } }
@@ -414,8 +421,6 @@
     border: none;
     background-color: transparent;
     border-bottom: 1px dotted #7C777D; }
-  .input-form #body-input {
-    height: 200px; }
   .input-form .button-div, .input-form .btn-edit {
     text-align: center; }
 
@@ -423,15 +428,14 @@
   width: 100%;
   margin-bottom: 50px; }
   .edit-image-div .edit-current-image {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto; }
-
-@media screen and (max-width: 480px) {
-  .edit-current-image {
     width: 70%;
     margin-left: auto;
-    margin-right: auto; } }
+    margin-right: auto; }
+    @media screen and (max-width: 480px) {
+      .edit-image-div .edit-current-image {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto; } }
 
 .form-control-desc {
   width: 100%;
@@ -440,11 +444,18 @@
   border: 1px dotted #7C777D;
   background-color: transparent;
   overflow-y: auto;
-  font-family: "Pavanam", sans-serif; }
+  font-family: "Pavanam", sans-serif;
+  height: 125px; }
 
 .delete-option {
   margin-top: 50px;
   text-align: center; }
+
+.main-form {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px; }
 
 .error-main {
   margin-top: 15%;
@@ -508,3 +519,6 @@ a {
   a:hover {
     font-style: oblique;
     font-weight: 900; }
+
+.error {
+  color: red; }

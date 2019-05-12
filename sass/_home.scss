@@ -19,6 +19,7 @@
       justify-content: center;
       width: 50%;
       max-height: 30vw;
+      color: $link-text-color;
 
       .latest-photo-div {
         width: 100%;
@@ -59,7 +60,7 @@
 
 .login-input {
   width: 95%;
-  height: 20px;
+  height: 30px;
   font-size: 16px;
   border: none;
   background-color: transparent;

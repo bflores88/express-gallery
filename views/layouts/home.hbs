@@ -1,8 +1,12 @@
+{{> header}}
+
 <main class="main-home">
 
 <section class="latest-photo">
   <div class="latest-photo-div">
     <img src="{{link}}" class="home-image" alt="latest">
+    <br>
+    Photo by:&nbsp;<a href="{{link}}">{{author}}</a>
   </div>
 
 </section>
@@ -13,6 +17,10 @@
   <div class="login-div">
     <div class="login-prompt">
       <h3>Happy Day!<br><br>Sign in to view galleries</h3>
+    </div>
+
+    <div class="error">
+      <h3>{{message}}</h3>
     </div>
     <form action="/login" method="post" role="form" enctype="application/x-www-form-urlencoded">
       <div>

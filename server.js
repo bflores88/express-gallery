@@ -31,6 +31,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(flash());
 app.use(session({ 
   store: new redis({url: process.env.REDIS_URL}),
   secret: process.env.REDIS_SECRET,
@@ -128,6 +129,7 @@ app.get('/', (req, res) => {
     .fetch()
     .then((result) => {
       let randomPhoto = result.toJSON();
+      randomPhoto.message = req.flash('error');
       return res.render('layouts/home', randomPhoto)
     })
     .catch((err) => {

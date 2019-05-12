@@ -33,10 +33,6 @@
     border-bottom: 1px dotted $header-text-color;
   }
 
-  #body-input {
-    height: 200px;
-  }
-
   .button-div, .btn-edit {
     text-align: center;
   }
@@ -47,21 +43,20 @@
   margin-bottom: 50px;
 
   .edit-current-image {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .edit-current-image {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
 
+    @media screen and (max-width: 480px) {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
   }
 }
+
+
 
 .form-control-desc {
   width: 100%;
@@ -71,9 +66,17 @@
   background-color: transparent;
   overflow-y: auto;
   font-family: $text-font;
+  height: 125px;
 }
 
 .delete-option {
   margin-top: 50px;
   text-align: center
+}
+
+.main-form {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
 }

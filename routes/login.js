@@ -10,6 +10,7 @@ router.post(
   '/',
   passport.authenticate('local', {
     successRedirect: '/gallery',
+    failureFlash: 'Invalid username or password.',
     failureRedirect: '/',
   }),
 );

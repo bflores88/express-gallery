@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-around;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 20px;
   border-top: 1px dotted $dotted-border-color;
   border-bottom: 1px dotted $dotted-border-color;
 
@@ -15,6 +15,7 @@
   a {
     text-decoration: none;
     color: $other-link-color;
+    font-size: 20px;
   }
   :hover {
     color: $header-text-color;
@@ -39,8 +40,9 @@
     flex-direction: row;
     justify-content: space-evenly;
     background-color: $dotted-border-color;
-    padding-top: 2%;
     margin-bottom: 2vw;
+    position: sticky;
+    top: 0;
 
     .small-nav-elem {
       display: flex;
