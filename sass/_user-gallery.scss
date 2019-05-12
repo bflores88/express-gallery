@@ -24,7 +24,7 @@
   flex-direction: column;
   justify-content: center;
 
-  @media screen and (min-width: 800px){
+  @media screen and (min-width: 800px) {
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -35,25 +35,23 @@
   width: 100%;
   height: auto;
   padding: 1vw 0vw;
-  
 
-  @media screen and (min-width: 800px){
+  @media screen and (min-width: 800px) {
     width: 45%;
-    height: auto
+    height: auto;
   }
 }
 
 .image-card-detail {
   display: none;
-
 }
 
 .image {
   width: 100%;
   position: relative;
-  z-index:1;
+  z-index: 1;
   :hover {
-    opacity: 0.80;
+    opacity: 0.8;
   }
 
   .single-img {
@@ -62,18 +60,21 @@
   }
 }
 
-@media screen and (min-width: 800px){
+@media screen and (min-width: 800px) {
   .image:hover + .image-card-detail {
     display: block;
     position: relative;
+    height: auto;
+    margin: 0px;
     top: -50%;
     text-align: center;
-    z-index:2;
+    z-index: 2;
     font-family: $text-font;
     color: black;
-    background-color: $home-bg-color
+    background-color: $home-bg-color;
+  }
+
+  .image-card-detail:hover + .image {
+    opacity: 0.8;
   }
 }
-
-
-

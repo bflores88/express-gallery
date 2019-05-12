@@ -80,7 +80,7 @@
     padding-bottom: 15px;
     margin-bottom: 10px;
     border-bottom: 1px dotted $dotted-border-color;
-    height: 230px;
+    min-height: 200px;
 
     .photo-div {
       width: 32%;
@@ -106,7 +106,7 @@
     padding-bottom: 15px;
     margin-bottom: 10px;
     border-bottom: 1px dotted $dotted-border-color;
-    height: 230px;
+    min-height: 200px;
   }
 
   .photo-div {

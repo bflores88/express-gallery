@@ -69,7 +69,7 @@ router
           description: resultObject.description,
           display: displayStyle,
           id: resultObject.id,
-          user_id: req.user.id
+          thisUser_id: userObject.id
         };
 
         return context;
@@ -183,8 +183,10 @@ function fillSideGallery(galleryArray, userID, roleID) {
   galleryArray.map((photoObject) => {
     if (photoObject.user_id === userID || roleID === 1) {
       photoObject.thisUser = true;
+      photoObject.thisUser_id = photoObject.user_id;
     } else {
       photoObject.thisUser = false;
+      photoObject.thisUser_id = photoObject.user_id;
     }
   });
 
