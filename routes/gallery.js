@@ -16,6 +16,7 @@ router
       .then((result) => {
         let allPlants = result.models;
         let context = fillGallery(currentUser, allPlants);
+        context.user_id = req.user.id;
         return res.status(200).render('layouts/all_users/gallery', context);
       })
       .catch((err) => {
@@ -69,7 +70,8 @@ router
           description: resultObject.description,
           display: displayStyle,
           id: resultObject.id,
-          thisUser_id: userObject.id
+          thisUser_id: userObject.id,
+          user_id: req.user.id
         };
 
         return context;
