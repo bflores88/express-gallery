@@ -9,6 +9,19 @@
   }
 }
 
+.user-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.delete-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
 .main-username {
   font-weight: 900;
   font-size: 40px;

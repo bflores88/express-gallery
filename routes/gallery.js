@@ -9,7 +9,7 @@ const Gallery = require('../database/models/Gallery');
 
 router
   .route('/')
-  .get((req, res) => {
+  .get((req, res, next) => {
     let currentUser = req.user.id;
 
     return new Gallery()
@@ -22,11 +22,10 @@ router
         return res.status(200).render('layouts/all_users/gallery', context);
       })
       .catch((err) => {
-        //maybe if have time log the error to an error log??
-        return res.redirect(302, '/internalError');
+        return next(err);
       });
   })
-  .post(checkNewForm, (req, res) => {
+  .post(checkNewForm, (req, res, next) => {
     let user_id = req.user.id;
     let author = req.body.author;
     let title = req.body.title;
@@ -39,8 +38,7 @@ router
         return res.redirect(302, '/gallery');
       })
       .catch((err) => {
-        //maybe if have time log the error to an error log??
-        return res.redirect(302, '/internalError');
+        return next(err);
       });
   });
 
@@ -54,7 +52,7 @@ router.route('/new').get((req, res) => {
 
 router
   .route('/:id')
-  .get((req, res) => {
+  .get((req, res, next) => {
     new Gallery()
       .where({ id: req.params.id })
       .fetch({ withRelated: ['users'] })
@@ -94,27 +92,24 @@ router
             return res.status(200).render('layouts/all_users/single', context);
           })
           .catch((err) => {
-            //maybe if have time log the error to an error log??
-            return res.redirect(302, '/internalError');
+            return next(err);
           });
       })
       .catch((err) => {
-        //maybe if have time log the error to an error log??
-        return res.redirect(302, '/internalError');
+        return next(err);
       });
   })
-  .delete((req, res) => {
+  .delete((req, res, next) => {
     new Gallery({ id: req.params.id })
       .destroy()
       .then((result) => {
         return res.redirect(302, '/gallery');
       })
       .catch((err) => {
-        //maybe if have time log the error to an error log??
-        return res.redirect(302, '/internalError');
+        return next(err);
       });
   })
-  .put(checkEditForm, (req, res) => {
+  .put(checkEditForm, (req, res, next) => {
     new Gallery('id', req.params.id)
       .save({
         user_id: req.user.id,
@@ -127,12 +122,11 @@ router
         return res.redirect(302, `/gallery/${Number(req.params.id)}`);
       })
       .catch((err) => {
-        //maybe if have time log the error to an error log??
-        return res.redirect(302, '/internalError');
+        return next(err);
       });
   });
 
-router.route('/:id/edit').get((req, res) => {
+router.route('/:id/edit').get((req, res, next) => {
   new Gallery()
     .where('id', req.params.id)
     .fetch()
@@ -150,8 +144,7 @@ router.route('/:id/edit').get((req, res) => {
       return res.status(200).render('layouts/all_users/edit', context);
     })
     .catch((err) => {
-      //maybe if have time log the error to an error log??
-      return res.redirect(302, '/internalError');
+      return next(err);
     });
 });
 
