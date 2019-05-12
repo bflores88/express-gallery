@@ -2,6 +2,8 @@
 
 const express = require('express');
 const router = express.Router();
+const checkNewForm = require('../middleware/checkNewForm');
+const checkEditForm = require('../middleware/checkEditForm');
 const User = require('../database/models/User');
 const Gallery = require('../database/models/Gallery');
 
@@ -24,7 +26,7 @@ router
         return res.redirect(302, '/internalError');
       });
   })
-  .post((req, res) => {
+  .post(checkNewForm, (req, res) => {
     let user_id = req.user.id;
     let author = req.body.author;
     let title = req.body.title;
@@ -43,7 +45,10 @@ router
   });
 
 router.route('/new').get((req, res) => {
-  let context = { user_id: req.user.id };
+  let context = {
+    user_id: req.user.id,
+    message: req.flash('error')
+  };
   return res.status(200).render('layouts/all_users/new', context);
 });
 
@@ -109,7 +114,7 @@ router
         return res.redirect(302, '/internalError');
       });
   })
-  .put((req, res) => {
+  .put(checkEditForm, (req, res) => {
     new Gallery('id', req.params.id)
       .save({
         user_id: req.user.id,
@@ -138,7 +143,8 @@ router.route('/:id/edit').get((req, res) => {
         link: result.get('link'),
         description: result.get('description'),
         id: result.get('id'),
-        user_id: req.user.id
+        user_id: req.user.id,
+        message: req.flash('error')
       };
 
       return res.status(200).render('layouts/all_users/edit', context);

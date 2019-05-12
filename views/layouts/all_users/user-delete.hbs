@@ -1,0 +1,31 @@
+ {{> header}}
+
+<main class="error-main">
+
+  <div class="error-div">
+    <div class="db-err">
+      We are sad to see you go,<br>but with every hello<br>is a "good-bye"...
+    </div>
+
+    <div class="db-sorry">
+      ...until next time!
+    </div>
+
+  <div class="error-go-back">
+     
+        By clicking below, I understand that my user access and gallery will be deleted for good.<br>
+      <form action="/users/{{user_id}}?_method=DELETE" method="post" role="form"
+            enctype="application/x-www-form-urlencoded">
+            <button type="submit" class="btn-edit btn-class" value="ok">DELETE.</button>
+      </form>
+  </div>
+
+  <br><br>
+    <div class="error-go-back">
+      <a href="/users/{{user_id}}">
+        Go Back<br>
+        <i class="far fa-hand-point-left"></i>
+      </a>
+    </div>
+  </div>
+</main>

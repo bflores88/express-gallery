@@ -8,6 +8,9 @@ const LocalStrategy = require('passport-local');
 const fs = require('fs')
 const methodOverride = require('method-override');
 const guard = require('./middleware/guard');
+const registration = require('./middleware/registration');
+const checkNewForm = require('./middleware/checkNewForm');
+const checkEditForm = require('./middleware/checkEditForm');
 const bcrypt = require('bcryptjs');
 const redis = require('connect-redis')(session);
 const flash = require('connect-flash');
@@ -86,7 +89,6 @@ passport.use(
         }
       })
       .catch((err) => {
-        //maybe if have time log the error to an error log??
         return res.redirect(302, '/internalError');
       });
   }),
@@ -113,7 +115,6 @@ passport.deserializeUser(function(user, done) {
     })
   })
   .catch((err) => {
-    //maybe if have time log the error to an error log??
     return res.redirect(302, '/internalError');
   })
 });
@@ -133,12 +134,10 @@ app.get('/', (req, res) => {
       return res.render('layouts/home', randomPhoto)
     })
     .catch((err) => {
-      //maybe if have time log the error to an error log??
       return res.redirect(302, '/internalError');
     })
   })
   .catch((err) => {
-    //maybe if have time log the error to an error log??
     return res.redirect(302, '/internalError');
   })
 
@@ -158,9 +157,16 @@ app.use(guard, (req, res, next) => {
 app.use('/gallery', gallery);
 app.use('/users', users);
 
+app.get('/delete', (req, res) => {
+  let context = {
+    user_id: req.user.id
+  }
+  return res.status(200).render('layouts/all_users/user-delete', context)
+})
+
 app.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('/')
+  return res.redirect('/')
 })
 
 const server = app.listen(PORT, () => {

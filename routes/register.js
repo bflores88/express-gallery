@@ -5,13 +5,14 @@ const User = require('../database/models/User');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const saltRounds = 12;
+const registration = require('../middleware/registration');
 
 router
   .route('/')
   .get((req, res) => {
     return res.status(200).render('layouts/register', {message: req.flash('error')});
   })
-  .post((req, res) => {
+  .post(registration, (req, res) => {
 
     new User('username', req.body.username)
       .fetch()
