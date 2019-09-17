@@ -1,0 +1,82 @@
+.main-home {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 100px;
+
+  .latest-photo {
+    display: none;
+  }
+
+  @media screen and (min-width: 800px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 70px;
+
+    .latest-photo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 50%;
+      max-height: 30vw;
+      color: $link-text-color;
+
+      .latest-photo-div {
+        width: 100%;
+
+        .home-image {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .home-wrapper {
+    width: 100%;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+
+    .login-register {
+      padding: 20px;
+      color: $header-text-color;
+
+      @media screen and (min-width: 480px) {
+        border: 7px solid $header-text-color;
+        background-color: $home-bg-color;
+      }
+    }
+
+    @media screen and (min-width: 800px) {
+      margin-top: 0%;
+      margin-right: 0%;
+      width: 40%;
+    }
+  }
+}
+
+.login-input {
+  width: 95%;
+  height: 30px;
+  font-size: 16px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px dotted $header-text-color;
+}
+
+.login-prompt {
+  .nav-elem {
+    color: $other-link-color;
+    text-decoration: none;
+
+    a {
+      text-decoration: none;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

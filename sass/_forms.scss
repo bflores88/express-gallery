@@ -1,0 +1,82 @@
+.form-content {
+  margin-top: 5vw;
+  margin-bottom: 100px;
+  padding: 20px;
+  border: 7px solid $header-text-color;
+  background-color: $home-bg-color;
+  color: $header-text-color;
+
+  @media screen and (max-width: 480px){
+    border: none;
+    background-color: transparent;
+  }
+}
+
+.input-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-control {
+    width: 100%;
+    font-size: 18px;
+    height: 30px;
+    overflow-x: auto;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px dotted $header-text-color;
+  }
+
+  .button-div, .btn-edit {
+    text-align: center;
+  }
+}
+
+.edit-image-div {
+  width: 100%;
+  margin-bottom: 50px;
+
+  .edit-current-image {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (max-width: 480px) {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+  }
+}
+
+
+
+.form-control-desc {
+  width: 100%;
+  overflow-y: auto;
+  font-size: 16px;
+  border: 1px dotted $header-text-color;
+  background-color: transparent;
+  overflow-y: auto;
+  font-family: $text-font;
+  height: 125px;
+}
+
+.delete-option {
+  margin-top: 50px;
+  text-align: center
+}
+
+.main-form {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}

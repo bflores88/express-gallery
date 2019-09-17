@@ -1,0 +1,136 @@
+.gallery-main {
+  width: 100%;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (max-width: 480px){
+    width: 90%;
+  }
+}
+
+.gallery-head-div {
+  width: 100%;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 1px dotted $dotted-border-color;
+  &:hover {
+    opacity: 0.65;
+  }
+
+  .gallery-head-img {
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 600px) {
+      width: 70%;
+    }
+  }
+}
+
+.gallery-minis {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+
+  .photo-div {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    flex: 0 0 auto;
+  }
+
+  .photo-text {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: 900;
+    color: $link-text-color;
+  }
+
+  .gallery-mini-img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.gallery-minis2 {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .gallery-minis {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted $dotted-border-color;
+    min-height: 200px;
+
+    .photo-div {
+      width: 32%;
+      height: 200px;
+      padding-right: 2%;
+      margin-bottom: 20px;
+      flex: 0 0 auto;
+    }
+
+    .gallery-mini-img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .gallery-minis2 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted $dotted-border-color;
+    min-height: 200px;
+  }
+
+  .photo-div {
+    width: 32%;
+    height: 200px;
+    padding-right: 2%;
+    margin-bottom: 20px;
+    flex: 0 0 auto;
+    &:hover {
+      opacity: 0.65;
+    }
+  }
+
+  .photo-text {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: auto;
+    white-space: nowrap;
+    font-weight: 900;
+    color: $link-text-color;
+  }
+
+  .gallery-mini-img {
+    width: 100%;
+    height: auto;
+  }
+}

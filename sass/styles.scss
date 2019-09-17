@@ -1,0 +1,65 @@
+$header-text-color: rgb(24, 187, 130);
+// $header-text-color: #7C777D;
+$link-text-color: rgb(182, 178, 178);
+$description-text-color: #A29B91;
+$dotted-border-color: lightgrey;
+$home-bg-color: rgba(241, 241, 241, 0.5);
+$other-link-color: #c720c7;
+$header-font: 'Hind Vadodara', sans-serif;
+$title-font: 'Raleway', sans-serif;
+$text-font: 'Pavanam', sans-serif;
+$link-text: 'Barlow', sans-serif;
+
+@import '_header';
+@import '_nav';
+@import '_home';
+@import '_gallery-all';
+@import '_gallery-single';
+@import '_user-gallery';
+@import '_forms';
+@import '_error';
+
+body {
+  margin: 0px;
+  padding-top: 5%;
+  padding-left: 15%;
+  padding-right: 15%;
+  background-image: url("../../assets/memphis-mini.png");
+  background-repeat: repeat;
+  font-family: $text-font;
+
+  @media screen and (max-width: 480px){
+    padding: 0px;
+  }
+}
+
+button {
+  padding: 5px 10px;
+  background-color: $other-link-color;
+  color: $link-text-color;
+  border-radius: 3px 12px;
+  font-size: 14px;
+  &:hover{
+    background-color: $link-text-color;
+    color: $header-text-color;
+  }
+}
+
+.fas {
+  height: 20px;
+}
+
+a {
+  color: $other-link-color;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: $link-text;
+  &:hover {
+    font-style: oblique;
+    font-weight: 900;
+  }
+}
+
+.error {
+  color: red;
+}

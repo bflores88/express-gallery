@@ -1,0 +1,36 @@
+{{> header}}
+
+<main class="main-form">
+
+  <div class="register-div">
+
+    <div class="register-header">
+      <h3>Register to be a part of our community!</h3>
+    </div>
+
+    <div class="error">
+      <h2>{{message}}</h2>
+    </div>
+
+  <div class="form">
+    <form action="/register" method="post" role="form" enctype="application/x-www-form-urlencoded">
+      <div>
+          <input type="text" class="login-input" name="username" placeholder="username"/>
+      </div>
+      <br>
+      <div>
+          <input type="password" class="login-input" name="password" placeholder="password"/>
+      </div>
+      <div>
+
+        <br><br>
+          <button type="submit" class="btn-class" value="Submit"/>Register</button>
+      </div>
+    </form>
+  </div>
+
+  </div>
+
+
+
+</main>

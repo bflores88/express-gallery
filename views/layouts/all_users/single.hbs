@@ -1,0 +1,63 @@
+ {{> nav-small}}
+ {{> header}}
+ {{> nav}}
+
+<main class="detail">
+
+  <section class="single-photo">
+    <div class="single-photo-div">
+      <div class="title-detail">{{title}}</div>
+
+      <div class="photo-detail">
+        <img src="{{link}}" class="this-photo" alt="{{title}}">
+      </div>
+
+      <div class="description-detail">
+        {{description}}
+      </div>
+
+      <div class="author-detail">
+        <span class="photo-author">Photo by:&nbsp;<a href="{{link}}">{{author}}</a></span><br><br>
+        <span class="photo-submitted">Submitted by:&nbsp;<a href="/users/{{thisUser_id}}">{{username}}</a></span>
+      </div>
+
+    </div>
+
+    <div class="edit-delete" style='display:{{display}}'>
+    <div class="edit-delete-button">
+      <a href="/gallery/{{id}}/edit">
+        <button type="button" class="btn-edit" value="ok">Edit</button>
+      </a>
+    </div>
+    
+  </div>
+  </section>
+
+  <section class="mini-details">
+
+    {{#each photo}}
+    <div class="single-mini">
+
+      <div class="single-mini-div">
+        <a href="/gallery/{{id}}"><img src="{{link}}" class="this-mini-photo" alt="{{title}}"></a>
+      </div>
+
+      <div class="mini-title">{{title}}</div>
+
+      {{#if thisUser}}
+      <div class="edit-delete">
+        <div class="edit-delete-button ed-mini">
+          <a href="/gallery/{{id}}/edit">
+            <button type="button" class="btn-edit" value="ok">Edit</button>
+          </a>
+        </div>
+      </div>
+      {{/if}}
+      
+    </div>
+
+    {{/each}}
+
+  </section>
+
+</main>

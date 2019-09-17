@@ -1,0 +1,61 @@
+ {{> nav-small}}
+ {{> header}}
+ {{> nav}}
+
+<div class="form-content">
+
+  <section class="input-form">
+
+    <form action="/gallery/{{id}}?_method=PUT" method="post" role="form" enctype="application/x-www-form-urlencoded">
+      <h2>Edit Gallery Photo</h2>
+
+      <div class="error">
+        <h3>{{message}}</h3>
+      </div>
+
+      <div class="form-group edit-image-div">
+        <img src="{{link}}" class="edit-current-image" alt="{{title}}">
+      </div>
+
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" name="title" value="{{title}}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="author">Author</label>
+        <input type="text" class="form-control" name="author" value="{{author}}" required>
+      </div>
+
+
+      <div class="form-group">
+        <label for="link">Photo URL Link</label>
+        <input type="text" class="form-control" name="link" value="{{link}}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Photo Description</label>
+        <textarea type="text" class="form-control-desc" id="body-input" name="description" required>{{description}}</textarea>
+      </div>
+
+      <div class="buttonDiv">
+        <button type="submit" class="btn-edit btn-class" value="OK">Submit</button>
+      </div>
+
+    </form>
+
+  </section>
+
+  <section class="delete-option">
+    <div class="delete-div">
+      <h2>Delete Gallery Photo</h2>
+    </div>
+    <div class="edit-delete-button">
+          <form action="/gallery/{{id}}?_method=DELETE" method="post" role="form"
+            enctype="application/x-www-form-urlencoded">
+            <button type="submit" class="btn-edit btn-class" value="ok">Delete</button>
+          </form>
+     </div>
+  </section>
+
+</div>

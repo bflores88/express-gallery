@@ -1,0 +1,45 @@
+.header-div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 10px;
+
+  @media screen and (min-width: 480px){
+    border-top: 1px dotted $dotted-border-color;
+  }
+
+  .banner {
+    width: 100%;
+    font-size: 35px;
+    padding-top: 5px;
+    font-weight: 900;
+    color: $header-text-color;
+    text-align: center;
+
+    @media screen and (min-width: 400px){
+      font-size: 50px;
+    }
+
+    @media screen and (min-width: 900px){
+      width: 60%;
+      font-size: 4.5vw;
+      text-align: initial;
+    }
+  }
+}
+
+.banner-info {
+  display: none;
+
+  @media screen and (min-width: 900px){
+    display: block;
+    width: 40%;
+    margin: 0px 5px 0px 0px;
+    padding: 0px 10px;
+    font-size: 1.25vw;
+    text-align: initial;
+    color: $link-text-color;
+    border-left: 1px solid lightgrey;
+  }
+}
