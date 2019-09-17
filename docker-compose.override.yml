@@ -1,9 +1,9 @@
-version: "3"
+version: '3'
 services:
   express-gallery:
     ports:
       - 3000:3000
-    command: ["./node_modules/.bin/nodemon", "server.js"]
+    command: ['./node_modules/.bin/nodemon', './server/server.js']
     volumes:
       - ./:/app
     env_file: .env
@@ -16,7 +16,7 @@ services:
     volumes:
       - pg-data-volume:/var/lib/postgresql/data
     ports:
-      - "${POSTGRES_HOST_PORT}:${POSTGRES_CONTAINER_PORT}"
+      - '${POSTGRES_HOST_PORT}:${POSTGRES_CONTAINER_PORT}'
     networks:
       - my-app-network
 
